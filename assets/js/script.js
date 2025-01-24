@@ -168,8 +168,8 @@ const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
 document.getElementById("last-updated").textContent = formattedDate;
 
 // Fetch and update the page visit count
-const namespace = "akshay-kargaonkar-site"; // Unique namespace
-const key = "page-visits"; // Unique key for the counter
+const namespace = "akshaykargaonkar"; // Unique namespace
+const key = "pagevisits"; // Unique key for the counter
 
 fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
   .then((response) => response.json())
