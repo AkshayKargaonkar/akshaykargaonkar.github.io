@@ -925,6 +925,17 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
   <p>&copy; 2025 Akshay Kargaonkar. All rights reserved.</p>
   <p>Last updated: <span id="last-updated"></span></p>
 </footer>
+
+  <script>
+  // Update the last-updated date dynamically
+  const lastUpdatedDate = new Date(document.lastModified);
+  const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  document.getElementById("last-updated").textContent = formattedDate;
+</script>
   
 </body>
 
