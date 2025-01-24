@@ -157,3 +157,27 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Update the last-updated date dynamically
+const lastUpdatedDate = new Date(document.lastModified);
+const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+document.getElementById("last-updated").textContent = formattedDate;
+
+// Fetch and update the page visit count
+const namespace = "akshay-kargaonkar-site"; // Unique namespace
+const key = "page-visits"; // Unique key for the counter
+
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+  .then((response) => response.json())
+  .then((data) => {
+    document.getElementById("page-visits").textContent = data.value;
+  })
+  .catch((error) => {
+    console.error("Error fetching visit count:", error);
+    document.getElementById("page-visits").textContent = "Error loading count";
+  });
+
