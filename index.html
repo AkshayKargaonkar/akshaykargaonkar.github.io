@@ -926,22 +926,7 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
   <p style="font-size: 12px; white-space: nowrap;">Last updated: <span id="last-updated"></span> || Page visits: <span id="page-visits"></span> </p>
 </footer>
 
-<script>
-  // Update the last-updated date dynamically
-  const lastUpdatedDate = new Date(document.lastModified);
-  const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-  document.getElementById("last-updated").textContent = formattedDate;
-
-  // Page visit counter
-  const visitKey = "pageVisits";
-  const visitCount = localStorage.getItem(visitKey) ? parseInt(localStorage.getItem(visitKey), 10) + 1 : 1;
-  localStorage.setItem(visitKey, visitCount);
-  document.getElementById("page-visits").textContent = visitCount;
-</script>
+<script src="script.js"></script>
   
 </body>
 
