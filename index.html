@@ -921,21 +921,13 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-<footer style=" color: #fff; text-align: center; padding: 20px 0; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 14px; box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);">
+<footer style="color: #fff; text-align: center; padding: 20px 0; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 14px; box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);">
   <p style="font-size: 12px;">© 2025 Akshay Kargaonkar</p>
   <p style="font-size: 12px; white-space: nowrap;">Last updated: <span id="last-updated"></span></p>
-  <!-- Hit Counter -->
-  <div style="text-align: center; margin-top: 20px;">
-  <a href="https://www.hitwebcounter.com" target="_blank">
-    <img src="https://hitwebcounter.com/counter/counter.php?page=18629582&style=0032&nbdigits=4&type=page&initCount=126" 
-         title="Counter Widget" 
-         alt="Visit counter For Websites" 
-         border="0" />
-  </a>
-</div>
+  <p style="font-size: 12px; white-space: nowrap;">Page visits: <span id="page-visits"></span></p>
 </footer>
 
-  <script>
+<script>
   // Update the last-updated date dynamically
   const lastUpdatedDate = new Date(document.lastModified);
   const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
@@ -944,6 +936,12 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
     day: "numeric",
   });
   document.getElementById("last-updated").textContent = formattedDate;
+
+  // Page visit counter
+  const visitKey = "pageVisits";
+  const visitCount = localStorage.getItem(visitKey) ? parseInt(localStorage.getItem(visitKey), 10) + 1 : 1;
+  localStorage.setItem(visitKey, visitCount);
+  document.getElementById("page-visits").textContent = visitCount;
 </script>
   
 </body>
