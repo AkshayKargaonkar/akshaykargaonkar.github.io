@@ -167,12 +167,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
 //});
 //document.getElementById("last-updated").textContent = formattedDate;
 
-// Import Firebase functions
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
 
 // Firebase configuration (replace with your actual config)
-  const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAwwHXb-pxsnioCe-OpxnL_QD7W2VugesM",
   authDomain: "page-visits-counter.firebaseapp.com",
   databaseURL: "https://page-visits-counter-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -208,3 +207,4 @@ const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
   day: "numeric",
 });
 document.getElementById("last-updated").textContent = formattedDate;
+
