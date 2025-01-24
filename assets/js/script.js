@@ -159,6 +159,48 @@ for (let i = 0; i < navigationLinks.length; i++) {
 }
 
 // Update the last-updated date dynamically
+//const lastUpdatedDate = new Date(document.lastModified);
+//const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
+//  year: "numeric",
+//  month: "long",
+//  day: "numeric",
+//});
+//document.getElementById("last-updated").textContent = formattedDate;
+
+// Import Firebase functions
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+// Firebase configuration (replace with your actual config)
+  const firebaseConfig = {
+  apiKey: "AIzaSyAwwHXb-pxsnioCe-OpxnL_QD7W2VugesM",
+  authDomain: "page-visits-counter.firebaseapp.com",
+  databaseURL: "https://page-visits-counter-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "page-visits-counter",
+  storageBucket: "page-visits-counter.firebasestorage.app",
+  messagingSenderId: "233814066051",
+  appId: "1:233814066051:web:3c14bebd5901723f6cacb6",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+// Increment the page visit counter
+const visitRef = ref(database, "pageVisits");
+
+// Increment the visit count
+runTransaction(visitRef, (currentVisits) => {
+  return (currentVisits || 0) + 1;
+});
+
+// Display the visit count
+onValue(visitRef, (snapshot) => {
+  const visitCount = snapshot.val();
+  document.getElementById("page-visits").textContent = visitCount || 0;
+});
+
+// Update the last-updated date dynamically
 const lastUpdatedDate = new Date(document.lastModified);
 const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
   year: "numeric",
@@ -166,33 +208,3 @@ const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
   day: "numeric",
 });
 document.getElementById("last-updated").textContent = formattedDate;
-
-// Firebase configuration (replace with your actual config)
-const firebaseConfig = {
-    apiKey: "AIzaSyAwwHXb-pxsnioCe-OpxnL_QD7W2VugesM",
-    authDomain: "page-visits-counter.firebaseapp.com",
-    databaseURL: "https://page-visits-counter-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "page-visits-counter",
-    storageBucket: "page-visits-counter.firebasestorage.app",
-    messagingSenderId: "233814066051",
-    appId: "1:233814066051:web:3c14bebd5901723f6cacb6",
-    measurementId: "G-T2P50CKJBX"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
-// Increment the page visit counter
-const visitRef = database.ref("pageVisits");
-
-// Increment the visit count
-visitRef.transaction((currentVisits) => {
-  return (currentVisits || 0) + 1;
-});
-
-// Display the visit count
-visitRef.on("value", (snapshot) => {
-  const visitCount = snapshot.val();
-  document.getElementById("page-visits").textContent = visitCount || 0;
-});
