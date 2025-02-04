@@ -24,7 +24,7 @@
     to bottom right, 
     hsla(240, 1%, 18%, 0.251) 0%, 
     hsla(240, 2%, 11%, 0) 100%
-  ), hsl(240, 2%, 13%);
+  ), hsl(240, 2%, 0%);
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
     hsl(45, 100%, 71%) 0%, 
@@ -466,8 +466,8 @@ main {
   position: fixed;
   bottom: 0;
   width: calc(100% - 24px);
-  background: hsla(240, 1%, 17%, 0.75);
-  backdrop-filter: blur(10px);
+  background: hsla(240, 1%, 17%, 0.4);
+  backdrop-filter: blur(0px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
@@ -665,7 +665,7 @@ margin-bottom: 15px;
 }
 
 .testimonials-modal {
-  background: var(--eerie-black-2);
+  background: var(--smoky-black);
   position: relative;
   padding: 15px;
   margin: 15px 12px;
