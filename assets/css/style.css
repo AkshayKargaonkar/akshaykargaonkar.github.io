@@ -51,7 +51,7 @@
   --jet: hsl(0, 0%, 22%);
   --onyx: hsl(240, 1%, 17%);
   --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
+  --eerie-black-2: hsl(240, 2%, 12%, 0.13);
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
@@ -148,7 +148,11 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body { background: var(--smoky-black); 
+       background-image: url(https://assets-global.website-files.com/6201a194dc1ad685a66e311c/62031c6ac372c14d39f6a4b7_background-tile-dark-transparent%402x.png);
+       background-position: 0 0;
+       background-size: 21px;
+}
 
 
 
