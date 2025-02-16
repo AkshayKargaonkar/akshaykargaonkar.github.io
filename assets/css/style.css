@@ -466,8 +466,12 @@ main {
   position: fixed;
   bottom: 0;
   width: calc(100% - 24px);
-  background: hsla(240, 1%, 17%, 0.4);
-  backdrop-filter: blur(0px);
+  background: var(--smoky-black);
+  background-image: url(https://assets-global.website-files.com/6201a194dc1ad685a66e311c/62031c6ac372c14d39f6a4b7_background-tile-dark-transparent%402x.png);
+  background-position: 0 0;
+  background-size: 21px;
+  /*background: hsla(240, 1%, 17%, 0.4);*/
+  /*backdrop-filter: blur(0px);*/
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
@@ -483,7 +487,7 @@ main {
 
 .navbar-link {
   color: var(--light-gray);
-  font-size: var(--fs-6);
+  font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
 }
@@ -1330,8 +1334,7 @@ textarea.form-input::-webkit-resizer { display: none; }
         border-radius: 18px;
     }
   .navbar-link {
-    font-size: var(--fs-8);
-  }
+    --fs-8: 8px; }
   
   /**
    * client
