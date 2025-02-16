@@ -965,10 +965,25 @@ margin-bottom: 15px;
 .project-img {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  height: auto; /* Adjust height dynamically */
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+/*.project-img {
+  position: relative;
+  width: 100%;
   height: 200px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+}*/
+.project-img img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures proper scaling */
 }
 
 .project-img::before {
