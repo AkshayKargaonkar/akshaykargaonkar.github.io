@@ -169,6 +169,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 
 // Firebase configuration (replace with your actual config)
 const firebaseConfig = {
@@ -184,20 +185,37 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const auth = getAuth();
 
-// Increment the page visit counter
-const visitRef = ref(database, "pageVisits");
-
-// Increment the visit count
-runTransaction(visitRef, (currentVisits) => {
-  return (currentVisits || 0) + 1;
+// Sign in anonymously
+signInAnonymously(auth).catch((error) => {
+  console.error("Authentication error:", error);
 });
 
-// Display the visit count
-onValue(visitRef, (snapshot) => {
-  const visitCount = snapshot.val();
-  document.getElementById("page-visits").textContent = visitCount || 0;
+// Wait until user is authenticated before interacting with the database
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User authenticated:", user.uid);
+
+    // Reference to the visit counter
+    const visitRef = ref(database, "pageVisits");
+
+    // Increment the visit count
+    runTransaction(visitRef, (currentVisits) => {
+      return (currentVisits || 0) + 1;
+    });
+
+    // Display the visit count
+    onValue(visitRef, (snapshot) => {
+      const visitCount = snapshot.val();
+      document.getElementById("page-visits").textContent = visitCount || 0;
+    });
+
+  } else {
+    console.log("User not authenticated");
+  }
 });
+
 
 // Update the last-updated date dynamically
 const lastUpdatedDate = new Date(document.lastModified);
