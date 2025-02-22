@@ -769,7 +769,24 @@ margin-bottom: 15px;
 
 .clients-item img:hover { filter: grayscale(0); }
 
+/*-----------------------------------*\
+  #DESIGN
+\*-----------------------------------*/
+.apng-container {
+  display: flex;
+  justify-content: space-between; /* Spaces images evenly */
+  align-items: center;
+  width: 100%; /* Ensure full-width container */
+  margin: auto; /* Center the container */
+  padding: 20px;
+}
 
+.rolling-bidet, .rolling-faucethead, .rolling-lixil, .rolling-ozone {
+  width: 24%; /* Makes sure 4 images fit in one row */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px; /* Optional: for rounded corners */
+}
 
 
 
