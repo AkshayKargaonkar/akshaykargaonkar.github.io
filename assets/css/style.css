@@ -1090,7 +1090,7 @@ margin-bottom: 15px;
 
 .test-gallery {
   display: grid;
-  grid-template-columns: 1.55fr 1fr; /* Two equal columns */
+  grid-template-columns: 1.55fr 1fr 1fr; /* Three columns */
   grid-template-rows: auto auto;  /* Two rows based on content height */
   grid-template-areas: 
     "test1 test2"
