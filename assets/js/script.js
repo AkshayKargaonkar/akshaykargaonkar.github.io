@@ -226,6 +226,21 @@ const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
 });
 document.getElementById("last-updated").textContent = formattedDate;
 
+// WebP animation function for 3 FPS
+window.addEventListener("DOMContentLoaded", function () {
+  const rollingBidet = document.getElementById("intro");
+  const totalFrames = 9; // Adjust based on actual frame count
+  const frameRate = 1000 / 3; // 3 FPS
+  let frameNumber = 1; // Start from frame 1
+
+  function updateFrame() {
+      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
+      rollingBidet.src = `./intro/${frameIndex}.webp`;
+      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
+  }
+
+  setInterval(updateFrame, frameRate); // Animate at 24 FPS
+});
 
 // WebP animation function for 24 FPS
 window.addEventListener("DOMContentLoaded", function () {
