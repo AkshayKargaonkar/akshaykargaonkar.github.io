@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>system-kitchen</title>
+
+  <!--
+    - favicon
+
+  <link rel="shortcut icon" href="./assets/images/5a-faucet/5a-faucet-3.jpg" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+        /* Default height for the figure with specific ID */
+    @media (min-width: 370px) {
+    #test {
+      width: 200px;
+    }
+    #testv {
+      width: 100px;
+    }
+    #dof {
+      width: 100px;
+    }
+    #switch {
+      width: 150px;
+    }
+  }
+  
+  @media (min-width: 566px) {
+    #dof {
+      width: 150px;
+    }
+    #switch {
+      width: 225px;
+    }
+  }
+
+  @media (min-width: 660px) {
+    #dof {
+      width: 180px;
+    }
+    #switch {
+      width: 270px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #dof {
+      width: 250px;
+    }
+    #switch {
+      width: 375px;
+    }
+  }
+    </style>
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/IMG_1392.jpg" alt="Akshay Kargaonkar" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
+
+          <p class="title">Research and Development Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Osaka, JAPAN</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+       <ul class="social-list">
+
+  <li class="social-item">
+    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+
+  <li class="social-item">
+    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+
+  <li class="social-item">
+    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+
+</ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+           <!-- <button class="navbar-link active" data-nav-link>Projects</button>-->
+            <a href="/index.html" class="navbar-link active" data-nav-link>Main Menu</a>
+          </li>
+          
+        </ul>
+
+      </nav>
+
+      <!--
+        - #CONTENT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">System Kitchen: Real-Time IoT Tracking of Water Use</h2>
+        </header>
+
+        <figure class="project-img">
+                  <img src="./assets/system-kitchen/system-kitchen-1.jpg" alt="system-kitchen-1" loading="lazy" width="180">
+        </figure>
+
+        
+        <section class="about-text">
+          
+          <p  style="margin-bottom: 50px; text-align:justify;">
+            I led a small engineering team in the mechanical development of an IoT-integrated kitchen faucet, 
+            focusing on delivering a reliable and scalable solution. 
+            This included designing and embedding flow and temperature sensors directly into a custom faucet body, 
+            with careful consideration for manufacturability and cost efficiency.
+
+          </p>
+
+          <figure class="project-img">
+                  <img src="./assets/system-kitchen/system-kitchen-2.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+          </figure>
+
+          <p  style="margin-bottom: 50px; text-align:justify;">
+            A conventional faucet body was transformed into a smart system by integrating a flow sensor to monitor water usage, 
+            a thermistor for precise temperature measurement, 
+            and an LED indicator to provide intuitive feedback. 
+            The LED glows red to indicate connection issues, 
+            green for a stable Wi-Fi link, and blue when data recording is in progress.
+          </p>
+
+          <figure class="project-img">
+                  <img src="./assets/system-kitchen/system-kitchen-3.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+          </figure>
+
+          <p  style="margin-bottom: 50px; text-align:justify;">
+            The above diagram illustrates the schematic and core logic of the system. 
+            It employs pseudo-parallelism through concurrency, enabling the ESP32-C3 to record sensor data and transmit it over Wi-Fi simultaneously without blocking other operations.
+            By leveraging FreeRTOS, the system efficiently manages independent tasks—such as data acquisition and Wi-Fi communication—so that each runs without interrupting the other.
+            A queue mechanism ensures that data is reliably buffered before transmission, safeguarding against potential losses during temporary network disruptions. In scenarios of prolonged poor Wi-Fi connectivity where the queue reaches its memory limit, the system prioritizes new data by overwriting the oldest entries, maintaining up-to-date records. 
+            Additionally, an integrated LED indicator provides real-time feedback, alerting the user to network issues by signaling when connectivity problems arise.
+          </p>
+
+          <figure class="project-img">
+                  <img src="./assets/system-kitchen/k-smart.png" alt="system-kitchen-2" loading="lazy" width="180">
+          </figure>
+
+          <p  style="margin-bottom: 50px; text-align:justify;">
+            Users can easily access their data by logging into their account on the K-Smart website. The information is presented in a clean, minimalistic layout that makes it simple to review and understand.
+          </p>
+
+
+          <h3 class="h3 testimonials-title">Future scope</h3>
+
+
+          <p  style="margin-bottom: 50px; text-align:justify;">
+            The system can be further optimized by eliminating the external USB power source. By integrating a low-power nRF5340 microcontroller, a 3.7 V lithium battery, and a micro-hydro generator, the setup can sustain itself by harvesting energy directly from water flow, continually charging the battery during operation. This would enable a fully autonomous, 
+            self-powered solution with significantly reduced energy requirements.
+          </p>
+
+
+
+        </section>
+
+        <!--
+          - testimonials
+     
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title"></h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item="" style="padding: 30px;">
+ <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank">
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/5a-faucet/whipsaw.svg" alt="whipsaw" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
+                </figure>
+ </a>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item="" style="padding: 30px;">
+<a href="https://meliordesign.com/" target="_blank">
+                <figure class="testimonials-avatar-box">
+                 <img src="./assets/5a-faucet/meliordesign.png" alt="meliordesign" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
+</a>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="TUM" width="80" data-modal-img>
+              </figure>
+
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>TUM, Germany</h4>
+
+              <time datetime="2021-06-14">Apr 2025 - Ongoing</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+</article>
+      <!--
+        - #RESUME
+     
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+ <section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
+  <iframe src="./CV_2_page.pdf" 
+          style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
+          frameborder="0" scrolling="auto"></iframe>
+</section>
+    
+      </article>
+
+
+      <!--
+        - #TRANSCRIPTS
+     
+ 
+      <article class="transcripts" data-page="transcripts">
+
+        <header>
+          <h2 class="h2 article-title">Transcripts</h2>
+        </header>
+<section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
+  <iframe src="./18je0074_transcript.PDF" 
+        style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
+          frameborder="0" scrolling="auto"></iframe>
+</section>
+ 
+      </article>
+
+      
+      <!--
+        - #PROJECTS
+      
+
+      <article class="portfolio" data-page="projects">
+
+        <header>
+          <h2 class="h2 article-title">Projects</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Finance</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Orizon</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #LIFE-LOGS
+     
+
+      <article class="blog" data-page="life-logs">
+
+        <header>
+          <h2 class="h2 article-title">Life-Logs</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank">
+
+    <figure class="blog-banner-box">
+      <img src="./assets/images/life-logs-1.jpeg" alt="life-logs-1" loading="lazy">
+                </figure>
+
+    <div class="blog-content">
+
+      <div class="blog-meta">
+        <p class="blog-category">Recognition</p>
+
+        <span class="dot"></span>
+
+        <time datetime="2022-02-23">Jan 2024</time>
+      </div>
+
+      <h3 class="h3 blog-item-title">Got featured on a Japanese TV show - Ikegami Sensei</h3>
+
+      <p class="blog-text">
+      </p>
+
+    </div>
+
+  </a>
+</li>
+
+            <li class="blog-post-item">
+               <a href="javascript:void(0)">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/padi.jpeg" alt="Open Water Diver" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Certification</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Jul 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">received my Open Water Diver Certification!</h3>
+                    <p class="blog-text">
+                    </p>
+                </div>
+
+               </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/red-dot.jpg" alt="Red Dot Award 2024" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Recognition</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Jun 2024</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Received Red Dot Design Awards 2024</h3>
+
+                  <p class="blog-text">
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+                <a href="javascript:void(0)">
+
+                <figure class="blog-banner-box-vertical">
+                  <img src="./assets/images/live-sketch.jpeg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Creative</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Jul 2023</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">A day out live setching in Osaka</h3>
+
+                  <p class="blog-text">
+            
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+                <a href="javascript:void(0)">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="javascript:void(0)">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52503.36585999224!2d135.57687771821398!3d34.66832881397833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001206044b1e4bd%3A0xa6b71e68f4c4e7e5!2sHigashiosaka%2C%20Osaka!5e0!3m2!1sen!2sjp!4v1726238169442!5m2!1sen!2sjp"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+  <h3 class="h3 form-title">Contact Form</h3>
+
+  <form action="https://formspree.io/f/mgvwbley" method="POST" class="form">
+
+    <div class="input-wrapper">
+      <input type="text" name="fullname" class="form-input" placeholder="Full name" required>
+
+      <input type="email" name="email" class="form-input" placeholder="Email address" required>
+    </div>
+
+    <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
+
+    <button class="form-btn" type="submit">
+      <ion-icon name="paper-plane"></ion-icon>
+      <span>Send Message</span>
+    </button>
+
+  </form>
+</section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
