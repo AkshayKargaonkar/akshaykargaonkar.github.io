@@ -1944,7 +1944,7 @@ textarea.form-input::-webkit-resizer { display: none; }
         padding: 15px;
         padding-top: 10px;
   }
-  .testimonials-item {min-width: calc(50% - 15px);}
+  .testimonials-item {min-width: calc(52% - 15px);}
   
   .testimonials-item-title {
     font-size: var(--fs-4);
