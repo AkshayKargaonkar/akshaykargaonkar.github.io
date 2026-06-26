@@ -1,6 +1,8 @@
 'use strict';
 
-
+// controls whether the frame-sequence animations on the Designs tab
+// are allowed to keep looping (paused while that tab isn't visible)
+let designsAnimationActive = false;
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -144,8 +146,10 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
+    const clickedPageName = this.innerHTML.toLowerCase();
+
     for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+      if (clickedPageName === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
@@ -155,154 +159,115 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+    // lazy-load any PDF/Map iframe inside the page being shown,
+    // so it isn't fetched until the visitor actually opens that tab
+    const shownPage = document.querySelector(`[data-page="${clickedPageName}"]`);
+    if (shownPage) {
+      const lazyIframe = shownPage.querySelector("iframe[data-src]");
+      if (lazyIframe) {
+        lazyIframe.src = lazyIframe.dataset.src;
+        lazyIframe.removeAttribute("data-src");
+      }
+    }
+
+    // only run the Designs-tab frame animations while that tab is visible,
+    // instead of letting them loop forever in the background
+    designsAnimationActive = (clickedPageName === "designs");
+
   });
 }
 
-// Update the last-updated date dynamically
-//const lastUpdatedDate = new Date(document.lastModified);
-//const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
-//  year: "numeric",
-//  month: "long",
-//  day: "numeric",
-//});
-//document.getElementById("last-updated").textContent = formattedDate;
+// Update the last-updated / page-visit counter — only present on the homepage footer
+const lastUpdatedEl = document.getElementById("last-updated");
+const pageVisitsEl = document.getElementById("page-visits");
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
-import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+if (lastUpdatedEl) {
+  const lastUpdatedDate = new Date(document.lastModified);
+  lastUpdatedEl.textContent = lastUpdatedDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
-// Firebase configuration (replace with your actual config)
-const firebaseConfig = {
-  apiKey: "AIzaSyAwwHXb-pxsnioCe-OpxnL_QD7W2VugesM",
-  authDomain: "page-visits-counter.firebaseapp.com",
-  databaseURL: "https://page-visits-counter-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "page-visits-counter",
-  storageBucket: "page-visits-counter.firebasestorage.app",
-  messagingSenderId: "233814066051",
-  appId: "1:233814066051:web:3c14bebd5901723f6cacb6",
-};
+if (pageVisitsEl) {
+  import("https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js").then(({ initializeApp }) => {
+    Promise.all([
+      import("https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"),
+      import("https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"),
+    ]).then(([{ getDatabase, ref, onValue, runTransaction }, { getAuth, signInAnonymously, onAuthStateChanged }]) => {
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const auth = getAuth();
+      const firebaseConfig = {
+        apiKey: "AIzaSyAwwHXb-pxsnioCe-OpxnL_QD7W2VugesM",
+        authDomain: "page-visits-counter.firebaseapp.com",
+        databaseURL: "https://page-visits-counter-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "page-visits-counter",
+        storageBucket: "page-visits-counter.firebasestorage.app",
+        messagingSenderId: "233814066051",
+        appId: "1:233814066051:web:3c14bebd5901723f6cacb6",
+      };
 
-// Sign in anonymously
-signInAnonymously(auth).catch((error) => {
-  console.error("Authentication error:", error);
-});
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth();
 
-// Wait until user is authenticated before interacting with the database
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("User authenticated:", user.uid);
+      signInAnonymously(auth).catch((error) => {
+        console.error("Authentication error:", error);
+      });
 
-    // Reference to the visit counter
-    const visitRef = ref(database, "pageVisits");
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const visitRef = ref(database, "pageVisits");
 
-    // Increment the visit count
-    runTransaction(visitRef, (currentVisits) => {
-      return (currentVisits || 0) + 1;
+          runTransaction(visitRef, (currentVisits) => (currentVisits || 0) + 1);
+
+          onValue(visitRef, (snapshot) => {
+            pageVisitsEl.textContent = snapshot.val() || 0;
+          });
+        }
+      });
+
     });
-
-    // Display the visit count
-    onValue(visitRef, (snapshot) => {
-      const visitCount = snapshot.val();
-      document.getElementById("page-visits").textContent = visitCount || 0;
-    });
-
-  } else {
-    console.log("User not authenticated");
-  }
-});
+  });
+}
 
 
-// Update the last-updated date dynamically
-const lastUpdatedDate = new Date(document.lastModified);
-const formattedDate = lastUpdatedDate.toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
-document.getElementById("last-updated").textContent = formattedDate;
+// Designs-tab frame-sequence animations.
+// These only run while the Designs tab is open (designsAnimationActive flag,
+// set in the nav-link click handler above) instead of looping forever in the
+// background on every page load.
+//
+// NOTE: these WebP-frame sequences are a heavy way to animate (each one is
+// 9-60 separate image requests, repeated indefinitely). The recommended fix
+// is to convert each sequence into a short looping .webm/.mp4 video and swap
+// the <img> for a <video autoplay muted loop playsinline poster="...">.
+// Keeping the frame-loop approach here for now since the asset conversion
+// has to happen outside this script (see ffmpeg notes provided separately).
+function startFrameAnimation({ elementId, folder, totalFrames, fps, gatedByDesignsTab }) {
+  const imgEl = document.getElementById(elementId);
+  if (!imgEl) return;
 
-// WebP animation function for 3 FPS
+  const frameRate = 1000 / fps;
+  let frameNumber = 1;
+
+  setInterval(() => {
+    // skip frame updates while the Designs tab isn't visible, so the browser
+    // isn't repeatedly fetching/decoding images nobody is looking at
+    if (gatedByDesignsTab && !designsAnimationActive) return;
+
+    const frameIndex = String(frameNumber).padStart(4, '0');
+    imgEl.src = `./${folder}/${frameIndex}.webp`;
+    frameNumber = (frameNumber % totalFrames) + 1;
+  }, frameRate);
+}
+
 window.addEventListener("DOMContentLoaded", function () {
-  const rollingBidet = document.getElementById("intro");
-  const totalFrames = 9; // Adjust based on actual frame count
-  const frameRate = 1000 / 3; // 3 FPS
-  let frameNumber = 1; // Start from frame 1
+  // intro animation on the About tab — always visible, not gated
+  startFrameAnimation({ elementId: "intro", folder: "intro", totalFrames: 9, fps: 3, gatedByDesignsTab: false });
 
-  function updateFrame() {
-      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
-      rollingBidet.src = `./intro/${frameIndex}.webp`;
-      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
-  }
-
-  setInterval(updateFrame, frameRate); // Animate at 24 FPS
+  // Designs-tab animations — gated so they pause while that tab is hidden
+  startFrameAnimation({ elementId: "rolling-bidet", folder: "rollingbidet", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
+  startFrameAnimation({ elementId: "rolling-faucethead", folder: "rollingfaucethead", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
+  startFrameAnimation({ elementId: "rolling-lixil", folder: "rollinglixil", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
+  startFrameAnimation({ elementId: "rolling-ozone", folder: "rollingozone", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
 });
-
-// WebP animation function for 24 FPS
-window.addEventListener("DOMContentLoaded", function () {
-  const rollingBidet = document.getElementById("rolling-bidet");
-  const totalFrames = 60; // Adjust based on actual frame count
-  const frameRate = 1000 / 24; // 24 FPS
-  let frameNumber = 1; // Start from frame 1
-
-  function updateFrame() {
-      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
-      rollingBidet.src = `./rollingbidet/${frameIndex}.webp`;
-      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
-  }
-
-  setInterval(updateFrame, frameRate); // Animate at 24 FPS
-});
-
-// WebP animation function for 24 FPS
-window.addEventListener("DOMContentLoaded", function () {
-  const rollingBidet = document.getElementById("rolling-faucethead");
-  const totalFrames = 60; // Adjust based on actual frame count
-  const frameRate = 1000 / 24; // 24 FPS
-  let frameNumber = 1; // Start from frame 1
-
-  function updateFrame() {
-      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
-      rollingBidet.src = `./rollingfaucethead/${frameIndex}.webp`;
-      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
-  }
-
-  setInterval(updateFrame, frameRate); // Animate at 24 FPS
-});
-
-// WebP animation function for 24 FPS
-window.addEventListener("DOMContentLoaded", function () {
-  const rollingBidet = document.getElementById("rolling-lixil");
-  const totalFrames = 60; // Adjust based on actual frame count
-  const frameRate = 1000 / 24; // 24 FPS
-  let frameNumber = 1; // Start from frame 1
-
-  function updateFrame() {
-      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
-      rollingBidet.src = `./rollinglixil/${frameIndex}.webp`;
-      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
-  }
-
-  setInterval(updateFrame, frameRate); // Animate at 24 FPS
-});
-
-// WebP animation function for 24 FPS
-window.addEventListener("DOMContentLoaded", function () {
-  const rollingBidet = document.getElementById("rolling-ozone");
-  const totalFrames = 60; // Adjust based on actual frame count
-  const frameRate = 1000 / 24; // 24 FPS
-  let frameNumber = 1; // Start from frame 1
-
-  function updateFrame() {
-      const frameIndex = String(frameNumber).padStart(4, '0'); // Format as '0001', '0002', etc.
-      rollingBidet.src = `./rollingozone/${frameIndex}.webp`;
-      frameNumber = (frameNumber % totalFrames) + 1; // Loop animation
-  }
-
-  setInterval(updateFrame, frameRate); // Animate at 24 FPS
-});
-
