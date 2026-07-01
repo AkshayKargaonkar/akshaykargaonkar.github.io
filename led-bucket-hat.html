@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360&deg; LED Matrix Bucket Hat | Akshay Kargaonkar</title>
+  <meta name="description" content="Case study: building a 360-degree WLED-controlled LED matrix bucket hat for the Formula One Japanese Grand Prix, by Akshay Kargaonkar.">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/IMG_1392.jpg" type="image/x-icon">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/IMG_1392.jpg" alt="Akshay Kargaonkar" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
+
+          <p class="title">Research and Development Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Osaka, JAPAN</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+       <ul class="social-list">
+
+  <li class="social-item">
+    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+      <ion-icon name="logo-linkedin"></ion-icon>
+    </a>
+  </li>
+
+  <li class="social-item">
+    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+      <ion-icon name="logo-github"></ion-icon>
+    </a>
+  </li>
+
+  <li class="social-item">
+    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+  </li>
+
+</ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="/index.html" class="navbar-link active" data-nav-link>Main Menu</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #CONTENT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">360&deg; LED Matrix Bucket Hat <br> for the Japanese Grand Prix</h2>
+        </header>
+
+        <figure class="project-img">
+          <img src="./assets/led-hat/led-hat-hero2.jpg" alt="LED matrix bucket hat, second view" loading="lazy">
+        </figure>
+
+        <section class="about-text">
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            This was my third visit to Suzuka Circuit. For any F1 fan, Suzuka is a pilgrimage. Japanese fans show up to the race weekend in the most creative hats and outfits I have ever seen. That got me thinking. I wanted to build something for the race that no one had seen before.
+          </p>
+
+          <figure class="project-img">
+            <img src="./assets/led-hat/fan-hats-inspiration.webp" alt="Examples of creative hats worn by Japanese Formula 1 fans at Suzuka" loading="lazy">
+          </figure>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Motivation</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            Being an electronics guy and a petrolhead, my first thought was something with LEDs. I did some research and found that LED matrix caps already exist, but they only cover the front of the cap. I wanted to go further. A bucket hat with LED matrix going all the way around, 360 degrees. Something you can see from any angle in the crowd.
+          </p>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Sourcing the hardware</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            I looked for LED matrix panels that were cheap but still easy to control. After comparing a few options I went with two 32x64 LED matrix panels from AliExpress. The plan was to connect the two panels side by side around the hat, with a small overlap where they meet, so the display wraps all the way around.
+          </p>
+
+          <figure class="project-img">
+            <img src="./assets/led-hat/matrix-wiring.jpg" alt="Two 32x64 LED matrix panels connected together before mounting" loading="lazy">
+          </figure>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Choosing the brains: ESP32 + WLED</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            While waiting for the panels to arrive (about a week), I started thinking about how to control them. I did not want a hat that just shows one fixed message. I wanted to control it live, at any point, from my phone. ESP32 was the obvious choice as the controller.
+          </p>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            For sending data to the ESP32, I wanted it to be as easy as sending a text. That is where <strong>WLED</strong> came in. It is an open source firmware for LED controllers that works over WiFi. It also has its own iOS and Android app, so I could just open the app on my phone and change what the hat shows in real time, no laptop needed.
+          </p>
+
+          <figure class="project-img">
+            <img src="./assets/led-hat/wled.jpg" alt="WLED app interface used to control the LED matrix" loading="lazy">
+          </figure>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Bring-up and testing</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            Once the panels were connected to the ESP32, I used WLED's built-in configuration to set exactly which LEDs are active across the combined panel. First tests were simple, solid colors, dynamic effects, and the built-in text feature, just to make sure everything was wired correctly.
+          </p>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Custom graphics and hitting ESP32's limits</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            Once the basics were working, I moved to custom graphics. I used <strong>Pixel Magic Tool</strong>, an open source tool that converts images and GIFs into WLED JSON files. This is how I made the rotating F1 logo.
+          </p>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            Storage on the ESP32 is limited though. I found that animations with more than 6 frames slow everything down noticeably, and you can see it on the panel. So I kept just one custom animation, the F1 logo, and used WLED's built-in effects for the rest. Scrolling text, falling stars, and mixing effects on top of each other. It looked really good.
+          </p>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Pixel Magic Tool</h3>
+
+          <p style="margin-bottom: 20px; text-align: justify;">
+            Pixel Magic Tool is the open source tool I used for making custom WLED animations. You upload any image or GIF, set your matrix dimensions, and it gives you a JSON file you push straight to WLED. No coding needed. Click the image below to check it out on GitHub.
+          </p>
+
+          <a href="https://github.com/ajotanc/PixelMagicTool" target="_blank" rel="noopener noreferrer">
+            <figure class="project-img">
+              <img src="./assets/led-hat/pixel-magic-tool.png" alt="Pixel Magic Tool — open-source image to WLED JSON converter by ajotanc" loading="lazy">
+            </figure>
+          </a>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Making it wearable</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            With everything working, I focused on making the wiring clean and sturdy. I used JST connectors and electrical tape so the connections are solid but still easy to take apart if needed. The ESP32 itself sits in my bag, connected to a power bank, and connects to my phone's hotspot when it powers on. The hat is just the display.
+          </p>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">The result</h3>
+
+          <p style="margin-bottom: 30px; text-align: justify;">
+            It was a hit. People kept stopping me to ask about it and take photos. Some even asked if they could buy it. That kind of reaction is exactly why I build things like this. No real purpose, just fun, and hopefully something that makes people smile.
+          </p>
+
+          <div class="hat-result-grid">
+            <figure class="project-img">
+              <img src="./assets/led-hat/hat1.jpg" alt="LED bucket hat in action at the Japanese Grand Prix" loading="lazy">
+            </figure>
+            <figure class="project-img">
+              <video autoplay muted loop playsinline preload="none"
+                     poster="./assets/led-hat/hat1.jpg"
+                     aria-label="LED bucket hat video 1">
+                <source src="./assets/led-hat/hat2.webm" type="video/webm">
+              </video>
+            </figure>
+            <figure class="project-img">
+              <video autoplay muted loop playsinline preload="none"
+                     poster="./assets/led-hat/hat1.jpg"
+                     aria-label="LED bucket hat video 2">
+                <source src="./assets/led-hat/hat3.webm" type="video/webm">
+              </video>
+            </figure>
+          </div>
+
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Shared on r/WLED as an open source project</h3>
+
+          <p style="margin-bottom: 20px; text-align: justify;">
+            The project was shared on Reddit's WLED community, including a short video of the hat in action:
+          </p>
+
+          <a href="https://www.reddit.com/r/WLED/comments/1br9ffm/my_new_bucket_hat_for_the_formula_one_japanese/" target="_blank" rel="noopener noreferrer" class="reddit-link-card">
+            <div class="reddit-link-card-icon">
+              <ion-icon name="logo-reddit"></ion-icon>
+            </div>
+            <div class="reddit-link-card-text">
+              <p class="reddit-link-card-title">My new bucket hat for the Formula One Japanese Grand Prix</p>
+              <p class="reddit-link-card-meta">r/WLED &middot; view the post &amp; video on Reddit</p>
+            </div>
+            <ion-icon name="open-outline" class="reddit-link-card-arrow"></ion-icon>
+          </a>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script type="module" src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
