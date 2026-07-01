@@ -151,10 +151,19 @@ for (let i = 0; i < navigationLinks.length; i++) {
     for (let i = 0; i < pages.length; i++) {
       if (clickedPageName === pages[i].dataset.page) {
         pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
       } else {
         pages[i].classList.remove("active");
+      }
+    }
+
+    // highlight the clicked nav link and remove active from all others
+    // (done separately so the highlight is always correct regardless of
+    // whether the navbar order matches the article DOM order)
+    for (let i = 0; i < navigationLinks.length; i++) {
+      if (navigationLinks[i].innerHTML.toLowerCase() === clickedPageName) {
+        navigationLinks[i].classList.add("active");
+      } else {
         navigationLinks[i].classList.remove("active");
       }
     }
@@ -173,6 +182,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
     // only run the Designs-tab frame animations while that tab is visible,
     // instead of letting them loop forever in the background
     designsAnimationActive = (clickedPageName === "designs");
+
+    // pause/play all Designs-tab video elements when switching tabs
+    ["rolling-bidet", "rolling-faucethead", "rolling-lixil", "rolling-ozone"].forEach((id) => {
+      const vid = document.getElementById(id);
+      if (vid) designsAnimationActive ? vid.play() : vid.pause();
+    });
 
   });
 }
@@ -230,44 +245,3 @@ if (pageVisitsEl) {
     });
   });
 }
-
-
-// Designs-tab frame-sequence animations.
-// These only run while the Designs tab is open (designsAnimationActive flag,
-// set in the nav-link click handler above) instead of looping forever in the
-// background on every page load.
-//
-// NOTE: these WebP-frame sequences are a heavy way to animate (each one is
-// 9-60 separate image requests, repeated indefinitely). The recommended fix
-// is to convert each sequence into a short looping .webm/.mp4 video and swap
-// the <img> for a <video autoplay muted loop playsinline poster="...">.
-// Keeping the frame-loop approach here for now since the asset conversion
-// has to happen outside this script (see ffmpeg notes provided separately).
-function startFrameAnimation({ elementId, folder, totalFrames, fps, gatedByDesignsTab }) {
-  const imgEl = document.getElementById(elementId);
-  if (!imgEl) return;
-
-  const frameRate = 1000 / fps;
-  let frameNumber = 1;
-
-  setInterval(() => {
-    // skip frame updates while the Designs tab isn't visible, so the browser
-    // isn't repeatedly fetching/decoding images nobody is looking at
-    if (gatedByDesignsTab && !designsAnimationActive) return;
-
-    const frameIndex = String(frameNumber).padStart(4, '0');
-    imgEl.src = `./${folder}/${frameIndex}.webp`;
-    frameNumber = (frameNumber % totalFrames) + 1;
-  }, frameRate);
-}
-
-window.addEventListener("DOMContentLoaded", function () {
-  // intro animation on the About tab — always visible, not gated
-  startFrameAnimation({ elementId: "intro", folder: "intro", totalFrames: 9, fps: 3, gatedByDesignsTab: false });
-
-  // Designs-tab animations — gated so they pause while that tab is hidden
-  startFrameAnimation({ elementId: "rolling-bidet", folder: "rollingbidet", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
-  startFrameAnimation({ elementId: "rolling-faucethead", folder: "rollingfaucethead", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
-  startFrameAnimation({ elementId: "rolling-lixil", folder: "rollinglixil", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
-  startFrameAnimation({ elementId: "rolling-ozone", folder: "rollingozone", totalFrames: 60, fps: 24, gatedByDesignsTab: true });
-});
