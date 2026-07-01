@@ -1419,6 +1419,39 @@ article[data-page="life-logs"] .project-item {
 
 
 /**
+ * #hat result media grid — photo + 2 videos in one row (led-bucket-hat.html)
+ */
+
+.hat-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.hat-result-grid .project-img {
+  margin-bottom: 0;
+}
+
+.hat-result-grid video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/**
+ * #pixel magic tool embed (led-bucket-hat.html)
+ */
+
+.pixel-magic-embed {
+  margin-bottom: 30px;
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/**
  * #reddit link card (used on project case-study pages, e.g. led-bucket-hat.html)
  */
 
