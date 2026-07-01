@@ -1022,10 +1022,10 @@ margin-bottom: 15px;
 }
 
 .rolling-bidet, .rolling-faucethead, .rolling-lixil, .rolling-ozone {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px; /* Optional: for rounded corners */
+  height: auto;
+  object-fit: contain;
 }
 
 
