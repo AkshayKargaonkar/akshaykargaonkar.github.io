@@ -1210,6 +1210,18 @@ margin-bottom: 15px;
   object-fit: cover; /* Ensures proper scaling */
 }
 
+/* Safari on iOS/iPadOS doesn't clip video to parent border-radius or
+   respect height:fit-content reliably. Keep video sizing identical to
+   how img is handled: block display (removes baseline gap), full width,
+   height auto. The parent .project-img carries overflow:hidden and
+   border-radius so clipping works correctly on all browsers. */
+.project-img video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .project-img::before {
   content: "";
   position: absolute;
