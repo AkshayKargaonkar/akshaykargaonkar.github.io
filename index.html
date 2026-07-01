@@ -195,15 +195,15 @@
           </li>
 
           <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
+
+          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>CV</button>
           </li>
 
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Transcripts</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
           </li>
 
           <li class="navbar-item">
@@ -234,7 +234,13 @@
 
         <!--  <img src="./assets/images/Sequence 01.gif" alt="My Passion" loading="lazy" style="width: 100%; border-radius: 15px;">-->
         <figure class="project-img">
-                  <img id="intro" class="intro" src="./intro/0001.webp" alt="My Passion" loading="lazy" width="180" style="height: fit-content";>
+                  <!--<img id="intro" class="intro" src="./intro/0001.webp" alt="My Passion" loading="lazy" width="180" style="height: fit-content";> 
+                  -->
+                <video id="intro" class="intro" autoplay muted loop playsinline
+                       poster="./intro/0001.webp" preload="none"
+                       aria-label="Intro Animation" alt="My Passion" loading="lazy" style="width: 100%; border-radius: 15px; height: fit-content;">
+                      <source src="./intro/intro.webm" type="video/webm">
+                </video>
         </figure>
         
         <section class="about-text">
@@ -587,7 +593,11 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
                 </div>
-                <img id="rolling-faucethead" class="rolling-faucethead" src="./rollingfaucethead/0001.webp" alt="Rolling faucethead Animation" loading="lazy">
+                <video id="rolling-faucethead" class="rolling-faucethead" autoplay muted loop playsinline
+                       poster="./rollingfaucethead/0001.webp" preload="none"
+                       aria-label="Rolling Faucethead Animation">
+                  <source src="./rollingfaucethead/rollingfaucethead.webm" type="video/webm">
+                </video>
               </figure>
             </a>
           </li>
@@ -599,7 +609,11 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
                 </div>
-                <img id="rolling-ozone" class="rolling-ozone" src="./rollingozone/0001.webp" alt="Rolling ozone Animation " loading="lazy">
+                <video id="rolling-ozone" class="rolling-ozone" autoplay muted loop playsinline
+                       poster="./rollingozone/0001.webp" preload="none"
+                       aria-label="Rolling Ozone Animation">
+                  <source src="./rollingozone/rollingozone.webm" type="video/webm">
+                </video>
               </figure>
             </a>
           </li>
@@ -611,7 +625,11 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
                 </div>
-                <img id="rolling-lixil" class="rolling-lixil" src="./rollinglixil/0001.webp" alt="Rolling lixil Animation" loading="lazy">
+                <video id="rolling-lixil" class="rolling-lixil" autoplay muted loop playsinline
+                       poster="./rollinglixil/0001.webp" preload="none"
+                       aria-label="Rolling Lixil Animation">
+                  <source src="./rollinglixil/rollinglixil.webm" type="video/webm">
+                </video>
               </figure>
             </a>
           </li>
@@ -623,7 +641,11 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
                 </div>
-                <img id="rolling-bidet" class="rolling-bidet" src="./rollingbidet/0001.webp" alt="Rolling Bidet Animation 1" loading="lazy">
+                <video id="rolling-bidet" class="rolling-bidet" autoplay muted loop playsinline
+                       poster="./rollingbidet/0001.webp" preload="none"
+                       aria-label="Rolling Bidet Animation">
+                  <source src="./rollingbidet/rollingbidet.webm" type="video/webm">
+                </video>
               </figure>
             </a>
           </li>
@@ -869,6 +891,25 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <h3 class="project-title">A Study on different Friction Models</h3>
 
                <p class="project-category">IIT ISM</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="individual fun">
+              <a href="./led-bucket-hat.html">
+
+               <figure class="project-img life-logs-section">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <!-- TODO: add your own hero photo of the finished hat here, e.g. ./assets/led-hat/led-hat-hero.jpg -->
+                  <img src="./assets/led-hat/led-hat-hero.jpg" alt="LED matrix bucket hat" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">360&deg; LED Matrix Bucket Hat</h3>
+
+               <p class="project-category">Individual</p>
 
               </a>
             </li>
