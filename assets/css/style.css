@@ -1337,6 +1337,10 @@ margin-bottom: 15px;
   grid-area: test3; /* Bottom-left: landscape */
 }
 
+.pulsation-video {
+  width: 100%;
+  height: 100%;
+}
 
 /*-----------------------------------*\
   #INSTA WIDGET (Life-Logs tab)
