@@ -78,6 +78,7 @@
   --fs-6: 14px;
   --fs-7: 13px;
   --fs-8: 11px;
+  --fs-9: 10px;
 
   /* font-weight */
   --fw-300: 300;
@@ -458,6 +459,40 @@ main {
 
 
 /*-----------------------------------*\
+  #LANGUAGE TOGGLE
+\*-----------------------------------*/
+
+.lang-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.lang-toggle:hover {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--white-1);
+}
+
+/* show/hide the correct label based on current language */
+.lang-toggle .lang-label-ja { display: none; }
+:lang(ja) .lang-toggle .lang-label-en { display: none; }
+:lang(ja) .lang-toggle .lang-label-ja { display: inline; }
+
+
+/*-----------------------------------*\
   #NAVBAR
 \*-----------------------------------*/
 
@@ -469,8 +504,6 @@ main {
   background-image: url(https://assets-global.website-files.com/6201a194dc1ad685a66e311c/62031c6ac372c14d39f6a4b7_background-tile-dark-transparent%402x.png);
   background-position: 0 0;
   background-size: 21px;
-  /*background: hsla(240, 1%, 17%, 0.4);*/
-  /*backdrop-filter: blur(0px);*/
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
@@ -479,15 +512,22 @@ main {
 
 .navbar-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: space-between; /* equal gaps between tab boxes */
   align-items: center;
+  width: 100%;
+  padding: 0 12px; /* keeps first/last tab away from the container edge */
+}
+
+.navbar-item {
+  flex: 0 0 auto; /* box is exactly as wide as the text inside it */
 }
 
 .navbar-link {
   color: var(--light-gray);
   font-size: var(--fs-8);
-  padding: 20px 7px;
+  padding: 20px 8px;  /* horizontal padding forms the visible "box" around text */
+  white-space: nowrap;
   transition: color var(--transition-1);
 }
 
@@ -496,7 +536,11 @@ main {
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
-
+/* Japanese labels are longer — scale down slightly so all 7 fit */
+:lang(ja) .navbar-link {
+  font-size: clamp(9px, 1.6vw, var(--fs-8));
+  letter-spacing: -0.2px;
+}
 
 
 
@@ -765,6 +809,11 @@ margin-bottom: 15px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
   padding: 10px 0;
+  align-items: stretch; /* all cards in the same row grow to the same height */
+}
+
+.achievement-item {
+  display: flex; /* makes the card fill the full grid cell height */
 }
 
 .achievement-card {
@@ -778,7 +827,8 @@ margin-bottom: 15px;
   padding: 20px;
   overflow: hidden;
   cursor: pointer;
-  min-height: 130px;
+  width: 100%;         /* fill the .achievement-item flex container */
+  min-height: 160px;   /* consistent floor height across all cards */
 }
 
 .achievement-icon {
@@ -1311,6 +1361,7 @@ margin-bottom: 15px;
     "test1 test2"
     "test3 test2"; /* `test2` spans both rows on the right */
   gap: 10px; /* Space between the items */
+  align-items: stretch; /* both cells reach the height of the taller one */
 }
 
 .test-gallery figure {
@@ -1341,6 +1392,23 @@ margin-bottom: 15px;
   width: 100%;
   height: 100%;
 }
+
+/* Makes the video figure in the two-column pulsation galleries stretch
+   to match the adjacent image's height. The image defines the row height;
+   the video figure must fill that height so the video matches it exactly. */
+.pulsation-side-figure {
+  display: flex;
+  align-items: stretch;
+}
+
+.pulsation-side-figure video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
 
 /*-----------------------------------*\
   #INSTA WIDGET (Life-Logs tab)
@@ -1748,8 +1816,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     .avatar-box {
         border-radius: 18px;
     }
-  .navbar-link {
-    --fs-8: 8px; }
+  /* navbar uses clamp() — no per-breakpoint font-size override needed here */
   
   /**
    * client
@@ -1906,11 +1973,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   .navbar { border-radius: 20px 20px 0px 0px;       
   margin-left: calc((100% - 700px) / 2);}
 
-  .navbar-list { gap: 20px; }
-
-  .navbar-link {
-    font-size: var(--fs-4);
-  }
+  /* navbar: flex:1 items + clamp font-size handles all sizing — no overrides needed */
 
 
 
@@ -2130,8 +2193,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
     
     
-  .navbar-link {
-    --fs-8: 15px; }
+  /* navbar clamp() handles font scaling — no override */
 
 
 
@@ -2298,11 +2360,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     padding: 0 20px;
     box-shadow: none;
     transform: translateX(0px);
-  }
-
-  .navbar-list {
-    gap: 20px;
-    padding: 0 20px;
   }
 
   .navbar-link { font-weight: var(--fw-500); }
