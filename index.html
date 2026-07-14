@@ -65,15 +65,13 @@
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- Language toggle — fixed top-right corner, outside navbar -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
 
   <main>
-
-    <!--
-      - #SIDEBAR
-    -->
 
     <aside class="sidebar" data-sidebar>
 
@@ -84,14 +82,12 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
-
-          <p class="title">Research and Development Engineer</p>
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -104,72 +100,56 @@
         <ul class="contacts-list">
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Email</p>
-
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
               <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
               <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Osaka, JAPAN</address>
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
             </div>
-
           </li>
 
         </ul>
 
         <div class="separator"></div>
 
-       <ul class="social-list">
-
-  <li class="social-item">
-    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
-      <ion-icon name="logo-linkedin"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
-      <ion-icon name="logo-github"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
-      <ion-icon name="logo-instagram"></ion-icon>
-    </a>
-  </li>
-
-</ul>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
 
       </div>
 
@@ -179,45 +159,35 @@
     <div class="main-content">
 
       <nav class="navbar">
-
         <ul class="navbar-list">
-
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link data-en="About" data-ja="自己紹介">About</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Designs</button>
+            <button class="navbar-link" data-nav-link data-en="Designs" data-ja="デザイン">Designs</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
+            <button class="navbar-link" data-nav-link data-en="Projects" data-ja="プロジェクト">Projects</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>CV</button>
+            <button class="navbar-link" data-nav-link data-en="CV" data-ja="履歴書">CV</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Transcripts</button>
+            <button class="navbar-link" data-nav-link data-en="Transcripts" data-ja="成績証明書">Transcripts</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Life-Logs</button>
+            <button class="navbar-link" data-nav-link data-en="Life-Logs" data-ja="ライフログ">Life-Logs</button>
           </li>
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-en="Contact" data-ja="お問い合わせ">Contact</button>
           </li>
-
         </ul>
-
       </nav>
 
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title" data-en="About me" data-ja="自己紹介">About me</h2>
         </header>
 
         <figure class="project-img">
@@ -229,21 +199,23 @@
         </figure>
         
         <section class="about-text">
-          
-          <p style="text-align: justify;">
+          <p style="text-align: justify;"
+             data-en="I am currently living and working in Japan, channeling my expertise as a mechanical and electronics engineer into meaningful projects. My passion lies in creating innovative solutions, particularly in mechatronics, robotics, and IoT, that enhance lives. When I&#39;m not immersed in engineering challenges, you&#39;ll find me exploring new places, capturing moments through my camera, or cycling around my neighborhood. I enjoy sketching, drawing, and not just diving into the sea but also in the world of films."
+             data-ja="現在、日本に在住し、機械・電子エンジニアとしての専門知識を活かして取り組んでいます。特にメカトロニクス、ロボティクス、IoT分野での革新的なソリューションの創出に情熱を注いでいます。エンジニアリングに没頭していないときは、新しい場所を探索したり、カメラで瞬間を切り取ったり、近所をサイクリングしたりしています。スケッチや絵を描くことも好きで、海に飛び込むだけでなく映画の世界にも浸っています。">
             I am currently living and working in Japan, channeling my expertise as a mechanical and electronics engineer into meaningful projects. My passion lies in creating innovative solutions, particularly in mechatronics, robotics, and IoT, that enhance lives.
 
 When I'm not immersed in engineering challenges, you'll find me exploring new places, capturing moments through my camera, or cycling around my neighborhood. I enjoy sketching, drawing, and not just diving into the sea but also in the world of films.
-           
           </p>
-           <p style="text-align: justify;">
+          <p style="text-align: justify;"
+             data-en="Welcome to my corner of the web, where I share my experiences, projects, and the journey towards creating impactful solutions in mechatronics."
+             data-ja="ここは私のウェブ上の小さなスペースです。経験やプロジェクト、そしてメカトロニクス分野でのインパクトある取り組みの歩みを共有しています。">
             Welcome to my corner of the web, where I share my experiences, projects, and the journey towards creating impactful solutions in mechatronics.
           </p>
         </section>
 
         <section class="testimonials">
 
-          <h3 class="h3 testimonials-title section-title-accent">My Journey So Far...</h3>
+          <h3 class="h3 testimonials-title section-title-accent" data-en="My Journey So Far..." data-ja="これまでの歩み">My Journey So Far...</h3>
 
           <ul class="career-list">
 
@@ -252,32 +224,27 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <span class="career-node" aria-hidden="true"></span>
                 <span class="career-date-lines"><span>Apr 2026</span><span>&ndash; Ongoing</span></span>
               </div>
-
               <div class="career-card" data-testimonials-item>
-
                 <figure class="career-logo-box">
                   <img src="./assets/images/dg_takano.png" alt="DG Takano" data-testimonials-avatar>
                 </figure>
-
                 <div class="career-info">
-                  <h4 class="h4 career-title" data-testimonials-title>DG Takano Co. Ltd.</h4>
-                  <p class="career-role">Development and Production Manager</p>
-
+                  <h4 class="h4 career-title" data-testimonials-title data-en="DG Takano Co. Ltd." data-ja="株式会社DGタカノ">DG Takano Co. Ltd.</h4>
+                  <p class="career-role" data-en="Development and Production Manager" data-ja="開発・生産マネージャー">Development and Production Manager</p>
                   <ul class="career-tags">
                     <li>R&amp;D</li>
-                    <li>Product Development</li>
-                    <li>Production</li>
+                    <li data-en="Product Development" data-ja="製品開発">Product Development</li>
+                    <li data-en="Production" data-ja="製造">Production</li>
                   </ul>
                 </div>
-
                 <div class="career-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="Currently, I am working as a Development and Production Manager at DG Takano Co., Ltd., where I manage the in-house development and manufacturing of water-saving products for the Japanese and Saudi Arabian markets. My responsibilities include overseeing the R&D team, production coordination, and managing the Osaka Factory for innovative water-efficient solutions."
+                     data-ja="現在、株式会社DGタカノにて開発・生産マネージャーとして勤務しています。日本およびサウジアラビア市場向けの節水製品の社内開発・製造を管理し、R&Dチームの監督、生産調整、大阪工場の運営を担当しています。">
                     Currently, I am working as a Development and Production Manager at DG Takano Co., Ltd.,
                     where I manage the in-house development and manufacturing of water-saving products for the Japanese and Saudi Arabian markets.
                     My responsibilities include overseeing the R&D team, production coordination, and managing the Osaka Factory for innovative water-efficient solutions.
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -286,31 +253,26 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <span class="career-node" aria-hidden="true"></span>
                 <span class="career-date-lines"><span>Sep 2022</span><span>&ndash; Apr 2026</span></span>
               </div>
-
               <div class="career-card" data-testimonials-item>
-
                 <figure class="career-logo-box">
                   <img src="./assets/images/dg_takano.png" alt="DG Takano" data-testimonials-avatar>
                 </figure>
-
                 <div class="career-info">
-                  <h4 class="h4 career-title" data-testimonials-title>DG Takano Co. Ltd.</h4>
-                  <p class="career-role">Research and Development Engineer</p>
-
+                  <h4 class="h4 career-title" data-testimonials-title data-en="DG Takano Co. Ltd." data-ja="株式会社DGタカノ">DG Takano Co. Ltd.</h4>
+                  <p class="career-role" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
                   <ul class="career-tags">
                     <li>R&amp;D</li>
-                    <li>Product Development</li>
-                    <li>Production</li>
+                    <li data-en="Product Development" data-ja="製品開発">Product Development</li>
+                    <li data-en="Production" data-ja="製造">Production</li>
                   </ul>
                 </div>
-
                 <div class="career-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="I worked as a Research and Development Engineer at DG Takano Co. Ltd., Osaka, Japan. I was involved in designing and development of water-efficient faucet systems, including a self-powered pulsating flow nozzle."
+                     data-ja="株式会社DGタカノ（大阪）にて研究開発エンジニアとして勤務し、自己駆動式脈動流ノズルを含む節水蛇口システムの設計・開発に従事しました。">
                     I worked as a Research and Development Engineer at DG Takano Co. Ltd., Osaka, Japan. I was involved in designing and development of
                     water-efficient faucet systems, including a self-powered pulsating flow nozzle.
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -319,31 +281,26 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <span class="career-node" aria-hidden="true"></span>
                 <span class="career-date-lines"><span>May 2019</span><span>&ndash; Mar 2022</span></span>
               </div>
-
               <div class="career-card" data-testimonials-item>
-
                 <figure class="career-logo-box">
                   <img src="./assets/images/mechismu_racing.png" alt="Mechismu Racing" data-testimonials-avatar>
                 </figure>
-
                 <div class="career-info">
                   <h4 class="h4 career-title" data-testimonials-title>Mechismu Racing</h4>
-                  <p class="career-role">Technical Head</p>
-
+                  <p class="career-role" data-en="Technical Head" data-ja="テクニカルヘッド">Technical Head</p>
                   <ul class="career-tags">
-                    <li>Formula Student</li>
-                    <li>Vehicle Design</li>
-                    <li>Team Leadership</li>
+                    <li data-en="Formula Student" data-ja="フォーミュラ学生">Formula Student</li>
+                    <li data-en="Vehicle Design" data-ja="車両設計">Vehicle Design</li>
+                    <li data-en="Team Leadership" data-ja="チームリーダーシップ">Team Leadership</li>
                   </ul>
                 </div>
-
                 <div class="career-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="I served as the Technical Head of the Formula Student team at IIT ISM Dhanbad, where we designed and built a race car annually in compliance with FSAE regulations. Our team competed against top universities in a range of static and dynamic events, focusing on innovation, performance, and engineering precision."
+                     data-ja="IIT ISMダンバードのフォーミュラ学生チームのテクニカルヘッドを務め、FSAEの規定に従い毎年レースカーを設計・製作しました。各大学と競い、革新性・性能・工学的精度を追求しました。">
                     I served as the Technical Head of the Formula Student team at IIT ISM Dhanbad, where we designed and built a race car annually in compliance with FSAE regulations.
                     Our team competed against top universities in a range of static and dynamic events, focusing on innovation, performance, and engineering precision.
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -352,32 +309,27 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
                 <span class="career-node" aria-hidden="true"></span>
                 <span class="career-date-lines"><span>Aug 2018</span><span>&ndash; May 2022</span></span>
               </div>
-
               <div class="career-card" data-testimonials-item>
-
                 <figure class="career-logo-box">
                   <img src="./assets/images/ism.png" alt="IIT ISM" data-testimonials-avatar>
                 </figure>
-
                 <div class="career-info">
                   <h4 class="h4 career-title" data-testimonials-title>IIT (ISM), Dhanbad</h4>
-                  <p class="career-role">B.Tech Mechanical Engineering</p>
-
+                  <p class="career-role" data-en="B.Tech Mechanical Engineering" data-ja="機械工学　学士">B.Tech Mechanical Engineering</p>
                   <ul class="career-tags">
-                    <li>Mechanical Design</li>
-                    <li>Robotics</li>
+                    <li data-en="Mechanical Design" data-ja="機械設計">Mechanical Design</li>
+                    <li data-en="Robotics" data-ja="ロボティクス">Robotics</li>
                     <li>CAD/CAE</li>
                   </ul>
                 </div>
-
                 <div class="career-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="I graduated from IIT ISM Dhanbad with a Bachelor of Technology in Mechanical Engineering. I delved into various subjects, including Machine Design, CAD Modeling and Simulation, and Robotics. These courses, complemented by my understanding of Kinematics and Dynamics of Machines, Mathematical Modelling, and Control Systems, set the basis for my passion within a broader engineering context."
+                     data-ja="IIT ISMダンバードにて機械工学の学士号を取得しました。機械設計、CADモデリング・シミュレーション、ロボティクスなどを学び、機械と機構の力学、数学的モデリング、制御システムへの理解が、より広い工学的視野への情熱の礎となりました。">
                     I graduated from IIT ISM Dhanbad with a Bachelor of Technology in Mechanical Engineering. I delved into various subjects, including Machine Design,
                     CAD Modeling and Simulation, and Robotics. These courses, complemented by my understanding of Kinematics and Dynamics of Machines, Mathematical Modelling,
                     and Control Systems, set the basis for my passion within a broader engineering context.
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -388,121 +340,99 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
         <section class="testimonials">
 
-          <h3 class="h3 testimonials-title section-title-accent">Certifications</h3>
+          <h3 class="h3 testimonials-title section-title-accent" data-en="Certifications" data-ja="資格・受賞歴">Certifications</h3>
 
           <ul class="achievements-list">
 
             <li class="achievement-item">
               <div class="achievement-card" data-testimonials-item>
-
                 <figure class="achievement-icon">
                   <img src="./assets/images/red-dot.png" alt="Red Dot" data-testimonials-avatar>
                 </figure>
-
                 <div class="achievement-info">
                   <h4 class="h4 achievement-title" data-testimonials-title>Red Dot Design Award 2025</h4>
-                  <p class="achievement-category">Best of the Best</p>
-
+                  <p class="achievement-category" data-en="Best of the Best" data-ja="ベスト・オブ・ザ・ベスト">Best of the Best</p>
                   <div class="achievement-date">
                     <ion-icon name="calendar-outline"></ion-icon>
                     <span>July 2025</span>
                   </div>
                 </div>
-
                 <span class="achievement-year-bg" aria-hidden="true">2025</span>
-
                 <div class="achievement-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="Served as Lead Engineer on the 5a-Faucet, honored with the Red Dot 'Best of the Best' Design Award 2025 for exceptional innovation and design excellence."
+                     data-ja="5aファウセットのリードエンジニアとして、2025年度レッドドット「ベスト・オブ・ザ・ベスト」デザイン賞を受賞しました。">
                     Served as Lead Engineer on the 5a-Faucet, honored with the Red Dot 'Best of the Best' Design Award 2025 for exceptional innovation and design excellence.
                   </p>
                   <figure>
                     <img src="./assets/5a-faucet/5a-faucet-3.jpeg" alt="5a-Faucet, Red Dot Best of the Best 2025" width="400" style="border-radius: 14px;">
                   </figure>
                 </div>
-
               </div>
             </li>
 
             <li class="achievement-item">
               <div class="achievement-card" data-testimonials-item>
-
                 <figure class="achievement-icon">
                   <img src="./assets/images/red-dot.png" alt="Red Dot" data-testimonials-avatar>
                 </figure>
-
                 <div class="achievement-info">
                   <h4 class="h4 achievement-title" data-testimonials-title>Red Dot Design Award 2024</h4>
-                  <p class="achievement-category">Product Design</p>
-
+                  <p class="achievement-category" data-en="Product Design" data-ja="プロダクトデザイン">Product Design</p>
                   <div class="achievement-date">
                     <ion-icon name="calendar-outline"></ion-icon>
                     <span>June 2024</span>
                   </div>
                 </div>
-
                 <span class="achievement-year-bg" aria-hidden="true">2024</span>
-
                 <div class="achievement-full-text" data-testimonials-text hidden>
-                  <p>
+                  <p data-en="Oversaw design verification and quality inspections for the meliordesign dishware, awarded the Red Dot Design Award 2024 (Product Design category)."
+                     data-ja="メリオデザイン食器の設計検証と品質検査を監督し、2024年度レッドドットデザイン賞（プロダクトデザイン部門）を受賞しました。">
                     Oversaw design verification and quality inspections for the meliordesign dishware, awarded the Red Dot Design Award 2024 (Product Design category).
                   </p>
                   <figure>
                     <img src="./assets/images/dish.jpg" alt="Meliordesign dishware, Red Dot Award 2024" width="400" style="border-radius: 14px;">
                   </figure>
                 </div>
-
               </div>
             </li>
 
             <li class="achievement-item">
               <div class="achievement-card" data-testimonials-item>
-
                 <figure class="achievement-icon">
                   <img src="./assets/images/IELTS.png" alt="IELTS" data-testimonials-avatar>
                 </figure>
-
                 <div class="achievement-info">
                   <h4 class="h4 achievement-title" data-testimonials-title>IELTS</h4>
-                  <p class="achievement-category">Academic overall score: 8.5</p>
-
+                  <p class="achievement-category" data-en="Academic overall score: 8.5" data-ja="総合スコア：8.5">Academic overall score: 8.5</p>
                   <div class="achievement-date">
                     <ion-icon name="calendar-outline"></ion-icon>
                     <span>Nov 2023</span>
                   </div>
                 </div>
-
                 <span class="achievement-year-bg" aria-hidden="true">2023</span>
-
                 <div class="achievement-full-text" data-testimonials-text hidden>
-                  <p>Reading: 9.0, Listening: 9.0, Writing: 7.5, Speaking: 7.5</p>
+                  <p data-en="Reading: 9.0, Listening: 9.0, Writing: 7.5, Speaking: 7.5" data-ja="リーディング：9.0、リスニング：9.0、ライティング：7.5、スピーキング：7.5">Reading: 9.0, Listening: 9.0, Writing: 7.5, Speaking: 7.5</p>
                 </div>
-
               </div>
             </li>
 
             <li class="achievement-item">
               <div class="achievement-card" data-testimonials-item>
-
                 <figure class="achievement-icon">
                   <img src="./assets/images/jlpt.png" alt="JLPT" data-testimonials-avatar>
                 </figure>
-
                 <div class="achievement-info">
                   <h4 class="h4 achievement-title" data-testimonials-title>JLPT</h4>
                   <p class="achievement-category">N4</p>
-
                   <div class="achievement-date">
                     <ion-icon name="calendar-outline"></ion-icon>
                     <span>July 2025</span>
                   </div>
                 </div>
-
                 <span class="achievement-year-bg" aria-hidden="true">2025</span>
-
                 <div class="achievement-full-text" data-testimonials-text hidden>
-                  <p>Japanese Language Proficiency Test, N4 level.</p>
+                  <p data-en="Japanese Language Proficiency Test, N4 level." data-ja="日本語能力試験、N4レベル合格。">Japanese Language Proficiency Test, N4 level.</p>
                 </div>
-
               </div>
             </li>
 
@@ -525,47 +455,35 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
               <figure class="modal-avatar-box">
                 <img src="./assets/images/avatar-1.png" alt="TUM" width="80" data-modal-img>
               </figure>
-
             </div>
 
             <div class="modal-content">
-
               <h4 class="h3 modal-title" data-modal-title></h4>
-
               <time datetime="2021-06-14">A</time>
-
               <div data-modal-text>
-                <p>
-                  
-                </p>
+                <p></p>
               </div>
-
             </div>
 
           </section>
 
         </div>
 
-</article>
+      </article>
 
 
+      <!-- #DESIGNS -->
 
-      <!--
-        - #DESIGNS
-      -->
-
-<article class="about" data-page="designs">
+      <article class="about" data-page="designs">
 
         <header>
-          <h2 class="h2 article-title">Designs</h2>
+          <h2 class="h2 article-title" data-en="Designs" data-ja="デザイン">Designs</h2>
         </header>
-
 
         <ul class="apng-container">
           
           <li class="project-item  active" data-filter-item data-category="dg takano">
             <a href="#5a-faucethead">
-
               <figure class="project-img life-logs-section">
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -581,7 +499,6 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
           <li class="project-item  active" data-filter-item data-category="dg takano">
             <a href="#ozone-generator">
-
               <figure class="project-img life-logs-section">
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -597,7 +514,6 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
           <li class="project-item  active" data-filter-item data-category="dg takano">
             <a href="#bubble90-faucethead">
-
               <figure class="project-img life-logs-section">
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -613,7 +529,6 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
           <li class="project-item  active" data-filter-item data-category="dg takano">
             <a href="#bubble90-bidet">
-
               <figure class="project-img life-logs-section">
                 <div class="project-item-icon-box">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -630,255 +545,194 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
         </ul>
 
         <section id="5a-faucethead" class="testimonials">
-        <h3 class="h3 testimonials-title" style="margin-top: 20px;margin-bottom: 20px;font-size: 24px;">5a faucethead</h3>
-        <img src="./assets/Designs/5a-faucethead.jpg" alt="faucethead" loading="lazy" style="width: 100%; border-radius: 15px;"> 
+          <h3 class="h3 testimonials-title" style="margin-top: 20px;margin-bottom: 20px;font-size: 24px;" data-en="5a faucethead" data-ja="5a ファウセットヘッド">5a faucethead</h3>
+          <img src="./assets/Designs/5a-faucethead.jpg" alt="faucethead" loading="lazy" style="width: 100%; border-radius: 15px;"> 
         </section>
   
         <section id="ozone-generator" class="testimonials">
-        <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;">Ozone generator</h3>
-        <img src="./assets/Designs/ozone90.jpg" alt="Ozone90" loading="lazy" style="width: 100%; border-radius: 15px;">
+          <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;" data-en="Ozone generator" data-ja="オゾン発生器">Ozone generator</h3>
+          <img src="./assets/Designs/ozone90.jpg" alt="Ozone90" loading="lazy" style="width: 100%; border-radius: 15px;">
         </section>
 
         <section id="bubble90-faucethead" class="testimonials">
-        <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;">Bubble90 faucethead</h3>
-        <img src="./assets/Designs/b90showerhead.jpg" alt="faucethead" loading="lazy" style="width: 100%; border-radius: 15px;"> 
+          <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;" data-en="Bubble90 faucethead" data-ja="Bubble90 ファウセットヘッド">Bubble90 faucethead</h3>
+          <img src="./assets/Designs/b90showerhead.jpg" alt="faucethead" loading="lazy" style="width: 100%; border-radius: 15px;"> 
         </section>
 
         <section id="bubble90-bidet" class="testimonials">
-        <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;">Bubble90 bidet</h3>
-        <img src="./assets/Designs/bidet.jpg" alt="Bidet" loading="lazy" style="width: 100%; border-radius: 15px;">
+          <h3 class="h3 testimonials-title" style="margin-top: 80px;margin-bottom: 20px;font-size: 24px;" data-en="Bubble90 bidet" data-ja="Bubble90 ビデ">Bubble90 bidet</h3>
+          <img src="./assets/Designs/bidet.jpg" alt="Bidet" loading="lazy" style="width: 100%; border-radius: 15px;">
         </section>
 
-</article>
+      </article>
 
-    
-      <!--
-        - #RESUME
-      -->
+
+      <!-- #RESUME -->
 
       <article class="resume" data-page="cv">
-
         <header>
-          <h2 class="h2 article-title">CV</h2>
+          <h2 class="h2 article-title" data-en="CV" data-ja="履歴書">CV</h2>
         </header>
- <section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
-  <iframe data-src="./CV.pdf" title="Akshay Kargaonkar's CV"
-          style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
-          frameborder="0" scrolling="auto" loading="lazy"></iframe>
-</section>
-    
+        <section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
+          <iframe data-src="./CV.pdf" data-src-en="./CV.pdf" data-src-ja="./CVJP.pdf" title="Akshay Kargaonkar's CV"
+                  style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
+                  frameborder="0" scrolling="auto" loading="lazy"></iframe>
+        </section>
       </article>
 
 
-      <!--
-        - #TRANSCRIPTS
-      -->
- 
+      <!-- #TRANSCRIPTS -->
+
       <article class="transcripts" data-page="transcripts">
-
         <header>
-          <h2 class="h2 article-title">Transcripts</h2>
+          <h2 class="h2 article-title" data-en="Transcripts" data-ja="成績証明書">Transcripts</h2>
         </header>
-<section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
-  <iframe data-src="./18je0074_transcript.PDF" title="Akshay Kargaonkar's academic transcript"
-        style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
-          frameborder="0" scrolling="auto" loading="lazy"></iframe>
-</section>
- 
+        <section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
+          <iframe data-src="./18je0074_transcript.PDF" title="Akshay Kargaonkar's academic transcript"
+                  style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
+                  frameborder="0" scrolling="auto" loading="lazy"></iframe>
+        </section>
       </article>
 
-      
-      <!--
-        - #PROJECTS
-      -->
+
+      <!-- #PROJECTS -->
 
       <article class="portfolio" data-page="projects">
 
         <header>
-          <h2 class="h2 article-title">Projects</h2>
+          <h2 class="h2 article-title" data-en="Projects" data-ja="プロジェクト">Projects</h2>
         </header>
 
         <section class="projects">
 
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>DG Takano</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>IIT ISM</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Fun</button>
             </li>
-
           </ul>
 
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
               </div>
-
             </button>
-
             <ul class="select-list">
-
               <li class="select-item">
                 <button data-select-item>All</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>DG Takano</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>IIT ISM</button>
               </li>
-              
-               <li class="select-item">
+              <li class="select-item">
                 <button data-select-item>Fun</button>
               </li>
-              
             </ul>
-
           </div>
 
           <ul class="project-list">
 
             <li class="project-item  active" data-filter-item data-category="dg takano">
               <a href="./5a-faucet.html">
-
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/5a-faucet/5a-faucet-1.jpeg" alt="5a-faucet" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">5a faucet: Product Development</h3>
-
-                <p class="project-category">Dg Takano</p>
-
+                <h3 class="project-title" data-en="5a faucet: Product Development" data-ja="5aファウセット：製品開発">5a faucet: Product Development</h3>
+                <p class="project-category" data-en="Dg Takano" data-ja="DGタカノ">Dg Takano</p>
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="dg takano">
               <a href="./System-kitchen.html">
-
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/sys_kit.png" alt="systems kitchen" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Systems Kitchen: IoT</h3>
-
+                <h3 class="project-title" data-en="Systems Kitchen: IoT" data-ja="システムキッチン：IoT">Systems Kitchen: IoT</h3>
                 <p class="project-category">Dg Takano</p>
-
               </a>
             </li>
 
-           <li class="project-item  active" data-filter-item data-category="dg takano">
+            <li class="project-item  active" data-filter-item data-category="dg takano">
               <a href="./Pulsation-measurement.html">
-
-               <figure class="project-img life-logs-section">
+                <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/pulsation-measurement/pulsation-measurement-1.jpg" alt="pulsation" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Pulsation Measurement Device</h3>
-
+                <h3 class="project-title" data-en="Pulsation Measurement Device" data-ja="脈動測定装置">Pulsation Measurement Device</h3>
                 <p class="project-category">Dg Takano</p>
-
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="iit ism">
               <a href="https://drive.google.com/file/d/1me_YUWA1nYvFG-Mvq5JmDCMgqawzwloP/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-
-              <figure class="project-img life-logs-section">
+                <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/chassis.jpg" alt="chassis" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Development of a Formula Student vehicle chassis</h3>
-
-               <p class="project-category">IIT ISM</p>
-
+                <h3 class="project-title" data-en="Development of a Formula Student vehicle chassis" data-ja="フォーミュラ学生車両シャーシの開発">Development of a Formula Student vehicle chassis</h3>
+                <p class="project-category" data-en="IIT ISM" data-ja="IIT ISM">IIT ISM</p>
               </a>
             </li>
 
-           <li class="project-item  active" data-filter-item data-category="iit ism">
+            <li class="project-item  active" data-filter-item data-category="iit ism">
               <a href="https://www.ijert.org/research/multibody-dynamic-simulation-of-a-mountain-bike-to-reduce-riding-injuries-during-a-jump-event-IJERTV12IS060120.pdf" target="_blank" rel="noopener noreferrer">
-
-              <figure class="project-img life-logs-section">
+                <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/cycle.png" alt="Mountain Bike" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">Multibody Dynamic Simulation of Mountain Bike Jumps to Minimize Riding Injuries</h3>
-
-               <p class="project-category">IIT ISM</p>
-
+                <h3 class="project-title" data-en="Multibody Dynamic Simulation of Mountain Bike Jumps to Minimize Riding Injuries" data-ja="マウンテンバイクジャンプの多体動力学シミュレーション（乗車傷害最小化）">Multibody Dynamic Simulation of Mountain Bike Jumps to Minimize Riding Injuries</h3>
+                <p class="project-category">IIT ISM</p>
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="iit ism">
               <a href="https://drive.google.com/file/d/1qgz6JhJIKszx9K8pc6KYdM0yTGHGo6Fi/preview" target="_blank" rel="noopener noreferrer">
-
-               <figure class="project-img life-logs-section">
+                <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/friction.png" alt="friction models" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">A Study on different Friction Models</h3>
-
-               <p class="project-category">IIT ISM</p>
-
+                <h3 class="project-title" data-en="A Study on different Friction Models" data-ja="各種摩擦モデルに関する研究">A Study on different Friction Models</h3>
+                <p class="project-category">IIT ISM</p>
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="fun">
               <a href="./led-bucket-hat.html">
-
-               <figure class="project-img life-logs-section">
+                <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/led-hat/led-hat-hero.jpg" alt="LED matrix bucket hat" loading="lazy">
                 </figure>
-
-                <h3 class="project-title">360&deg; LED Matrix Bucket Hat</h3>
-
-               <p class="project-category">Fun</p>
-
+                <h3 class="project-title" data-en="360° LED Matrix Bucket Hat" data-ja="360° LEDマトリックス バケットハット">360&deg; LED Matrix Bucket Hat</h3>
+                <p class="project-category" data-en="Fun" data-ja="趣味">Fun</p>
               </a>
             </li>
 
@@ -888,13 +742,13 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
       </article>
 
- <!--
-        - #LIFE-LOGS-TRIAL
-      -->
- <article class="portfolio" data-page="life-logs">
+
+      <!-- #LIFE-LOGS -->
+
+      <article class="portfolio" data-page="life-logs">
 
         <header>
-          <h2 class="h2 article-title">Life-Logs</h2>
+          <h2 class="h2 article-title" data-en="Life-Logs" data-ja="ライフログ">Life-Logs</h2>
         </header>
 
         <section class="insta-widget">
@@ -905,113 +759,92 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
           <ul class="project-list">
 
-            <li class="project-item  active" >
-              <a href="https://www.nhk.jp/p/salameshi/ts/PVPP6PZNLG/episode/te/Q2J87V9Q4V/"  target="_blank" rel="noopener noreferrer">
-
+            <li class="project-item  active">
+              <a href="https://www.nhk.jp/p/salameshi/ts/PVPP6PZNLG/episode/te/Q2J87V9Q4V/" target="_blank" rel="noopener noreferrer">
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/sarameshi.jpg" alt="life-logs-1" loading="lazy">
                 </figure>
-                <p class="project-category">Recognition | Jan 2025</p>
-                <h3 class="project-title">My Journey in Japan - Sarameshi NHK TV show!</h3>
-
+                <p class="project-category" data-en="Recognition | Jan 2025" data-ja="表彰 | 2025年1月">Recognition | Jan 2025</p>
+                <h3 class="project-title" data-en="My Journey in Japan - Sarameshi NHK TV show!" data-ja="日本での生活 - NHK「サラメシ」出演！">My Journey in Japan - Sarameshi NHK TV show!</h3>
               </a>
             </li>
-            
 
-            <li class="project-item  active" >
-              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/"  target="_blank" rel="noopener noreferrer">
-
+            <li class="project-item  active">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank" rel="noopener noreferrer">
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/life-logs-1.jpeg" alt="life-logs-1" loading="lazy">
                 </figure>
-                <p class="project-category">Recognition | Jan 2024</p>
-                <h3 class="project-title">Got featured on a Japanese TV show - Ikegami Sensei</h3>
-
+                <p class="project-category" data-en="Recognition | Jan 2024" data-ja="表彰 | 2024年1月">Recognition | Jan 2024</p>
+                <h3 class="project-title" data-en="Got featured on a Japanese TV show - Ikegami Sensei" data-ja="日本のテレビ番組「池上先生」に出演">Got featured on a Japanese TV show - Ikegami Sensei</h3>
               </a>
             </li>
 
             <li class="project-item  active">
               <a href="./assets/images/padi.jpeg" target="_blank" rel="noopener noreferrer">
-
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/padi.jpeg" alt="Open Water Diver" loading="lazy">
                 </figure>
-                <p class="project-category">Certification | Jul 2023</p>
-                <h3 class="project-title">Received My Open Water Diver Certification!</h3>
+                <p class="project-category" data-en="Certification | Jul 2023" data-ja="資格 | 2023年7月">Certification | Jul 2023</p>
+                <h3 class="project-title" data-en="Received My Open Water Diver Certification!" data-ja="オープンウォーターダイバー資格を取得！">Received My Open Water Diver Certification!</h3>
               </a>
-              
             </li>
 
-            <li class="project-item  active" >
-              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770"  target="_blank" rel="noopener noreferrer">
-
+            <li class="project-item  active">
+              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank" rel="noopener noreferrer">
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/red-dot.jpg" alt="red-dot" loading="lazy">
                 </figure>
-                <p class="project-category">Recognition | Jun 2024</p>
-                <h3 class="project-title">Received Red Dot Design Awards 2024!</h3>
+                <p class="project-category" data-en="Recognition | Jun 2024" data-ja="表彰 | 2024年6月">Recognition | Jun 2024</p>
+                <h3 class="project-title" data-en="Received Red Dot Design Awards 2024!" data-ja="レッドドットデザイン賞2024を受賞！">Received Red Dot Design Awards 2024!</h3>
               </a>
-
             </li>
 
-            <li class="project-item  active" >
+            <li class="project-item  active">
               <a href="./assets/images/live-sketch.jpg" target="_blank" rel="noopener noreferrer">
-
                 <figure class="project-img life-logs-section-vertical">
                   <div class="project-item-icon-box">
-                     <ion-icon name="eye-outline"></ion-icon> 
+                    <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/live-sketch.jpg" alt="live-sketch" loading="lazy">
                 </figure>
-                <p class="project-category">Creative | Aug 2023</p>
-                <h3 class="project-title">A day out live sketching in Osaka</h3>
+                <p class="project-category" data-en="Creative | Aug 2023" data-ja="クリエイティブ | 2023年8月">Creative | Aug 2023</p>
+                <h3 class="project-title" data-en="A day out live sketching in Osaka" data-ja="大阪でのライブスケッチの一日">A day out live sketching in Osaka</h3>
               </a>
-              
             </li>
 
-            <li class="project-item  active" >
+            <li class="project-item  active">
               <a href="javascript:void(0)">
-
                 <figure class="project-img life-logs-section">
                   <div class="project-item-icon-box">
-                     <ion-icon name="eye-outline"></ion-icon> 
+                    <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/volunteer.jpg" alt="volunteer" loading="lazy">
                 </figure>
-                <p class="project-category">Volunteer | Jul 2023</p>
-                <h3 class="project-title">English Teaching Volunteer in Japan: More Fun Than Expected</h3>
+                <p class="project-category" data-en="Volunteer | Jul 2023" data-ja="ボランティア | 2023年7月">Volunteer | Jul 2023</p>
+                <h3 class="project-title" data-en="English Teaching Volunteer in Japan: More Fun Than Expected" data-ja="日本での英語指導ボランティア：予想以上に楽しかった">English Teaching Volunteer in Japan: More Fun Than Expected</h3>
               </a>
-              
             </li>
 
-            <li class="project-item  active" >
+            <li class="project-item  active">
               <a href="javascript:void(0)">
-
                 <figure class="project-img life-logs-section">
                   <img src="./assets/images/suzuka.jpg" alt="suzuka" loading="lazy">
                 </figure>
-                <p class="project-category">Adventure | Apr 2024</p>
-                <h3 class="project-title">My Third Visit To The Japanese Grand Prix: Suzuka Circuit</h3>
+                <p class="project-category" data-en="Adventure | Apr 2024" data-ja="冒険 | 2024年4月">Adventure | Apr 2024</p>
+                <h3 class="project-title" data-en="My Third Visit To The Japanese Grand Prix: Suzuka Circuit" data-ja="日本グランプリ：鈴鹿サーキットへの3度目の訪問">My Third Visit To The Japanese Grand Prix: Suzuka Circuit</h3>
               </a>
-              
             </li>
 
           </ul>
@@ -1021,14 +854,12 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
       </article>
 
 
-      <!--
-        - #CONTACT
-      -->
+      <!-- #CONTACT -->
 
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title" data-en="Contact" data-ja="お問い合わせ">Contact</h2>
         </header>
 
         <section class="mapbox" data-mapbox>
@@ -1041,28 +872,22 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
         </section>
 
         <section class="contact-form">
-  <h3 class="h3 form-title">Contact Form</h3>
-
-  <form action="https://formspree.io/f/mgvwbley" method="POST" class="form" data-form>
-
-    <div class="input-wrapper">
-      <label class="sr-only" for="fullname">Full name</label>
-      <input id="fullname" type="text" name="fullname" class="form-input" data-form-input placeholder="Full name" required>
-
-      <label class="sr-only" for="email">Email address</label>
-      <input id="email" type="email" name="email" class="form-input" data-form-input placeholder="Email address" required>
-    </div>
-
-    <label class="sr-only" for="message">Your message</label>
-    <textarea id="message" name="message" class="form-input" data-form-input placeholder="Your Message" required></textarea>
-
-    <button class="form-btn" data-form-btn type="submit">
-      <ion-icon name="paper-plane"></ion-icon>
-      <span>Send Message</span>
-    </button>
-
-  </form>
-</section>
+          <h3 class="h3 form-title" data-en="Contact Form" data-ja="お問い合わせフォーム">Contact Form</h3>
+          <form action="https://formspree.io/f/mgvwbley" method="POST" class="form" data-form>
+            <div class="input-wrapper">
+              <label class="sr-only" for="fullname">Full name</label>
+              <input id="fullname" type="text" name="fullname" class="form-input" data-form-input placeholder="Full name" data-placeholder-en="Full name" data-placeholder-ja="お名前" required>
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" type="email" name="email" class="form-input" data-form-input placeholder="Email address" data-placeholder-en="Email address" data-placeholder-ja="メールアドレス" required>
+            </div>
+            <label class="sr-only" for="message">Your message</label>
+            <textarea id="message" name="message" class="form-input" data-form-input placeholder="Your Message" data-placeholder-en="Your Message" data-placeholder-ja="メッセージ" required></textarea>
+            <button class="form-btn" data-form-btn type="submit">
+              <ion-icon name="paper-plane"></ion-icon>
+              <span data-en="Send Message" data-ja="送信する">Send Message</span>
+            </button>
+          </form>
+        </section>
 
       </article>
 
@@ -1073,12 +898,12 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-<footer style="color: #fff; text-align: center; padding: 20px 0; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 14px; box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);">
-  <p style="font-size: 12px;">© 2025 || Akshay Kargaonkar</p>
-  <p style="font-size: 12px; white-space: nowrap;">Last updated: <span id="last-updated"></span> || Page visits: <span id="page-visits"></span> </p>
-</footer>
+  <footer style="color: #fff; text-align: center; padding: 20px 0; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 14px; box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);">
+    <p style="font-size: 12px;">© 2025 || Akshay Kargaonkar</p>
+    <p style="font-size: 12px; white-space: nowrap;">Last updated: <span id="last-updated"></span> || Page visits: <span id="page-visits"></span> </p>
+  </footer>
 
-<script type="module" src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/script.js"></script>
   
 </body>
 
