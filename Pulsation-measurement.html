@@ -5,82 +5,52 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulsation-measurement-device</title>
+  <title>Pulsation Measurement Device | Akshay Kargaonkar</title>
+  <meta name="description" content="Case study: development of a pulsation measurement device by Akshay Kargaonkar at DG Takano.">
 
-  <!--
-    - favicon
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/IMG_1392.jpg" type="image/x-icon">
 
-  <link rel="shortcut icon" href="./assets/images/5a-faucet/5a-faucet-3.jpg" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-        /* Default height for the figure with specific ID */
     @media (min-width: 370px) {
-    #test {
-      width: 200px;
+      #test  { width: 200px; }
+      #testv { width: 100px; }
+      #dof   { width: 100px; }
+      #switch{ width: 150px; }
     }
-    #testv {
-      width: 100px;
+    @media (min-width: 566px) {
+      #dof   { width: 150px; }
+      #switch{ width: 225px; }
     }
-    #dof {
-      width: 100px;
+    @media (min-width: 660px) {
+      #dof   { width: 180px; }
+      #switch{ width: 270px; }
     }
-    #switch {
-      width: 150px;
+    @media (min-width: 1024px) {
+      #dof   { width: 250px; }
+      #switch{ width: 375px; }
     }
-  }
-  
-  @media (min-width: 566px) {
-    #dof {
-      width: 150px;
-    }
-    #switch {
-      width: 225px;
-    }
-  }
-
-  @media (min-width: 660px) {
-    #dof {
-      width: 180px;
-    }
-    #switch {
-      width: 270px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    #dof {
-      width: 250px;
-    }
-    #switch {
-      width: 375px;
-    }
-  }
-    </style>
+  </style>
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- Language toggle — fixed top-right corner -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
+
 
   <main>
-
-    <!--
-      - #SIDEBAR
-    -->
 
     <aside class="sidebar" data-sidebar>
 
@@ -91,14 +61,12 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
-
-          <p class="title">Research and Development Engineer</p>
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -111,141 +79,109 @@
         <ul class="contacts-list">
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Email</p>
-
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
               <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
               <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Osaka, JAPAN</address>
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
             </div>
-
           </li>
 
         </ul>
 
         <div class="separator"></div>
 
-       <ul class="social-list">
-
-  <li class="social-item">
-    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank">
-      <ion-icon name="logo-linkedin"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank">
-      <ion-icon name="logo-github"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank">
-      <ion-icon name="logo-instagram"></ion-icon>
-    </a>
-  </li>
-
-</ul>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
 
       </div>
 
     </aside>
 
 
-
-
-
-    <!--
-      - #main-content
-    -->
-
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
-
       <nav class="navbar">
-
         <ul class="navbar-list">
-
           <li class="navbar-item">
-           <!-- <button class="navbar-link active" data-nav-link>Projects</button>-->
-            <a href="/index.html" class="navbar-link active" data-nav-link>Main Menu</a>
+            <a href="/index.html" class="navbar-link active" data-nav-link data-en="Main Menu" data-ja="メインメニュー">Main Menu</a>
           </li>
-          
         </ul>
-
       </nav>
-
-      <!--
-        - #CONTENT
-      -->
 
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">Pulsation Measurement Device</h2>
+          <h2 class="h2 article-title" data-en="Pulsation Measurement Device" data-ja="脈動測定装置">Pulsation Measurement Device</h2>
         </header>
 
 
-        <div class="test-gallery", style="grid-template-columns:3fr 1fr;">
+        <div class="test-gallery" style="grid-template-columns:3fr 1fr;">
           <figure class="project-img">
-                  <img src="./assets/pulsation-measurement/pulsation-measurement-1.jpg" alt="system-kitchen-1" loading="lazy" width="180">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-1.jpg" alt="Pulsation measurement device overview" loading="lazy">
           </figure>
-          <figure>
-                  <video class="pulsation-video" autoplay muted loop playsinline
-                         poster="./assets/pulsation-measurement/pulsation-measurement-1.jpg"
-                         preload="none" aria-label="Pulsation flow animation">
-                    <source src="./assets/pulsation-measurement/pulsation-1.webm" type="video/webm">
-                  </video>
+          <figure class="pulsation-side-figure">
+            <video class="pulsation-video" autoplay muted loop playsinline
+                   poster="./assets/pulsation-measurement/pulsation-measurement-1.jpg"
+                   preload="none" aria-label="Pulsation flow animation">
+              <source src="./assets/pulsation-measurement/pulsation-1.webm" type="video/webm">
+            </video>
           </figure>
         </div>
        
         <section class="about-text">
           
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="Bubble90 is the flagship product of DG TAKANO, widely sold across Japan and adopted by numerous national restaurant chains. It utilizes a unique pulsating flow generated entirely without moving parts, relying on the Venturi effect: water pressure from the tap creates suction that draws in air and mixes it with the water, producing a distinctive pulsating stream. Because Bubble90 is manufactured with extremely tight tolerances, even minor dimensional deviations can significantly impact the quality of pulsation. Traditionally, the pulsation quality was assessed manually — operators would feel the water flow by hand to judge its characteristics. This method is inherently prone to human error and inconsistency. Recognizing the need for a more objective, reliable, and repeatable evaluation method, this project was initiated to develop a dedicated device to measure and quantify the pulsation quality of Bubble90 units."
+             data-ja="Bubble90はDGタカノの主力製品であり、日本全国で広く販売され、多くの全国チェーン飲食店にも採用されています。可動部品を一切使わず、ベンチュリ効果を利用した独自の脈動流を発生させます。蛇口の水圧が吸引力を生み出し、空気を水に混合させることで特徴的な脈動流を生成します。Bubble90は非常に厳しい公差で製造されているため、わずかな寸法のばらつきでも脈動品質に大きな影響を与えます。従来、脈動品質は作業者が手で水流を感じることで評価していましたが、この方法は人的誤差や個人差が生じやすいという問題がありました。より客観的・信頼性の高い評価手法の必要性から、Bubble90ユニットの脈動品質を定量的に測定・評価する専用装置を開発するプロジェクトが開始されました。">
             Bubble90 is the flagship product of DG TAKANO, widely sold across Japan and adopted by numerous national restaurant chains. It utilizes a unique pulsating flow generated entirely without moving parts, relying on the Venturi effect: water pressure from the tap creates suction that draws in air and mixes it with the water, producing a distinctive pulsating stream.
 Because Bubble90 is manufactured with extremely tight tolerances, even minor dimensional deviations can significantly impact the quality of pulsation. Traditionally, the pulsation quality was assessed manually—operators would feel the water flow by hand to judge its characteristics. This method is inherently prone to human error and inconsistency.
-Recognizing the need for a more objective, reliable, and repeatable evaluation method, this project was initiated to develop a dedicated device to measure and quantify the pulsation quality of Bubble90 units. This ensures consistent product performance, enhances quality assurance, and supports DG TAKANO’s commitment to precision manufacturing.
+Recognizing the need for a more objective, reliable, and repeatable evaluation method, this project was initiated to develop a dedicated device to measure and quantify the pulsation quality of Bubble90 units. This ensures consistent product performance, enhances quality assurance, and supports DG TAKANO's commitment to precision manufacturing.
           </p>
 
           <figure class="project-img">
-                  <img src="./assets/pulsation-measurement/pulsation-measurement-2.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-2.jpg" alt="Pulsation measurement sensor setup" loading="lazy">
           </figure>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The idea was to use a Force Resistance Sensor (FRS) to detect the pulsation amplitude and frequency of the water flow produced by Bubble90. The analog signal from the FRS is recorded using an oscilloscope, capturing real-time waveform data. This data is then exported and processed using a Python script. The script performs a Fast Fourier Transform (FFT) on the signal, which decomposes the complex waveform into its constituent frequencies. This allows us to identify the dominant frequency component and measure its amplitude, giving a quantitative assessment of the pulsation strength. By automating this analysis, we achieve a consistent, objective method to evaluate the pulsation characteristics, replacing subjective manual testing."
+             data-ja="Bubble90が生成する水流の脈動振幅と周波数を検出するため、感圧センサー（FRS）を使用しました。FRSからのアナログ信号はオシロスコープで記録され、脈動のリアルタイム波形データを取得します。このデータはPythonスクリプトで処理され、高速フーリエ変換（FFT）によって複雑な波形を構成周波数に分解します。これにより、脈動周波数に対応する主要周波数成分とその振幅を特定し、脈動強度の定量的な評価が可能になります。この分析を自動化することで、主観的な手動検査に代わる一貫した客観的評価手法を実現しました。">
             The idea was to use a Force Resistance Sensor (FRS) to detect the pulsation amplitude and frequency of the water flow produced by Bubble90. The sensor captures the force variations caused by the pulsating stream.
 
 The analog signal from the FRS is recorded using an oscilloscope, capturing real-time waveform data of the pulsation.
@@ -260,10 +196,12 @@ By automating this analysis, we achieve a consistent, objective method to evalua
           </p>
 
           <figure class="project-img">
-                  <img src="./assets/pulsation-measurement/pulsation-measurement-3.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-3.jpg" alt="Circuit schematic iterations" loading="lazy">
           </figure>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The above diagram illustrates the schematic and core logic of the system design through multiple development iterations. Iteration 1: This initial approach employed a voltage divider circuit to monitor voltage fluctuations directly from the sensor. While straightforward, it lacked precision and was more susceptible to noise. Iteration 2: To improve measurement accuracy and protect the circuit, this version introduced a precision operational amplifier (op-amp) configuration along with diodes to guard against voltage spikes. Final Iteration: The final design incorporated electrolytic and ceramic capacitors to filter out high-frequency noise and smooth voltage variations. This was critical when converting AC 100V to DC 15V, ensuring a stable DC supply for the sensor and signal processing stages."
+             data-ja="上の図は、複数の開発イテレーションを経たシステム設計の回路図と核となるロジックを示しています。イテレーション1：センサーから直接電圧変動を監視する電圧分圧回路を採用したシンプルな初期アプローチ。精度に欠け、ノイズの影響を受けやすいという課題がありました。イテレーション2：測定精度の向上と回路保護のため、精密オペアンプ構成とサージ電圧対策のダイオードを追加。信号精度とシステムの堅牢性が向上しました。最終イテレーション：高周波ノイズのフィルタリングと電圧変動の平滑化のため、電解コンデンサとセラミックコンデンサを組み込みました。AC100VからDC15Vへの変換において安定した直流電源を確保し、センサーと信号処理段階の動作を保証しました。">
             The above diagram illustrates the schematic and core logic of the system design through multiple development iterations: <br>
 
 Iteration 1:
@@ -276,617 +214,28 @@ Final Iteration:
 The final, more advanced design incorporated electrolytic and ceramic capacitors to filter out high-frequency noise and smooth voltage variations. This was critical when converting AC 100V to DC 15V, ensuring a stable DC supply for the sensor and signal processing stages.
           </p>
 
-          <div class="test-gallery", style="grid-template-columns:2fr 1fr;">
-          <figure class="project-img">
-                  <img src="./assets/pulsation-measurement/pulsation-measurement-4.jpg" alt="system-kitchen-1" loading="lazy" width="180">
-          </figure>
-          <figure>
-                  <video class="pulsation-video" autoplay muted loop playsinline
-                         poster="./assets/pulsation-measurement/pulsation-measurement-4.jpg"
-                         preload="none" aria-label="Oscilloscope measurement animation">
-                    <source src="./assets/pulsation-measurement/pulsation-2.webm" type="video/webm">
-                  </video>
-          </figure>
-        </div>
+          <div class="test-gallery" style="grid-template-columns:2fr 1fr;">
+            <figure class="project-img">
+              <img src="./assets/pulsation-measurement/pulsation-measurement-4.jpg" alt="Oscilloscope measurement results" loading="lazy">
+            </figure>
+            <figure class="pulsation-side-figure">
+              <video class="pulsation-video" autoplay muted loop playsinline
+                     poster="./assets/pulsation-measurement/pulsation-measurement-4.jpg"
+                     preload="none" aria-label="Oscilloscope measurement animation">
+                <source src="./assets/pulsation-measurement/pulsation-2.webm" type="video/webm">
+              </video>
+            </figure>
+          </div>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="After carefully tuning the variable resistor, we were able to record a substantial amount of data with minimal error using the oscilloscope. The results clearly demonstrated a distinct difference between a good and a defective sample of Bubble90. This approach not only enables us to differentiate between acceptable and defective units, but also quantifies how good a sample is by providing a percentage-based quality metric. This quantitative assessment adds significant value over the traditional pass/fail approach, offering deeper insights into product performance."
+             data-ja="可変抵抗を慎重に調整することで、オシロスコープを使用して誤差の少ない大量のデータを記録することができました。結果は、Bubble90の良品と不良品の間に明確な差異があることを示しました。このアプローチは良品・不良品の判別だけでなく、パーセンテージによる品質指標でサンプルの品質を定量化することも可能にします。従来の合否判定アプローチと比べて大きな付加価値をもたらし、製品性能に関するより深い洞察を提供します。">
             After carefully tuning the variable resistor, we were able to record a substantial amount of data with minimal error using the oscilloscope. The results clearly demonstrated a distinct difference between a good and a defective sample of Bubble90. <br>
 
 This approach not only enables us to differentiate between acceptable and defective units, but also quantifies how good a sample is by providing a percentage-based quality metric. This quantitative assessment adds significant value over the traditional pass/fail approach, offering deeper insights into product performance.
           </p>
 
-
         </section>
-
-        <!--
-          - testimonials
-     
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title"></h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item="" style="padding: 30px;">
- <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank">
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/5a-faucet/whipsaw.svg" alt="whipsaw" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
-                </figure>
- </a>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item="" style="padding: 30px;">
-<a href="https://meliordesign.com/" target="_blank">
-                <figure class="testimonials-avatar-box">
-                 <img src="./assets/5a-faucet/meliordesign.png" alt="meliordesign" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
-</a>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="TUM" width="80" data-modal-img>
-              </figure>
-
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>TUM, Germany</h4>
-
-              <time datetime="2021-06-14">Apr 2025 - Ongoing</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-</article>
-      <!--
-        - #RESUME
-     
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
- <section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
-  <iframe src="./CV_2_page.pdf" 
-          style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
-          frameborder="0" scrolling="auto"></iframe>
-</section>
-    
-      </article>
-
-
-      <!--
-        - #TRANSCRIPTS
-     
- 
-      <article class="transcripts" data-page="transcripts">
-
-        <header>
-          <h2 class="h2 article-title">Transcripts</h2>
-        </header>
-<section class="pdf-viewer" style="width: 100%; height: 100vh; overflow: hidden;">
-  <iframe src="./18je0074_transcript.PDF" 
-        style="width: 100%; height: 100%; max-width: 100%; max-height: 100vh;" 
-          frameborder="0" scrolling="auto"></iframe>
-</section>
- 
-      </article>
-
-      
-      <!--
-        - #PROJECTS
-      
-
-      <article class="portfolio" data-page="projects">
-
-        <header>
-          <h2 class="h2 article-title">Projects</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Finance</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Orizon</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Manager</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Arrival</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #LIFE-LOGS
-     
-
-      <article class="blog" data-page="life-logs">
-
-        <header>
-          <h2 class="h2 article-title">Life-Logs</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank">
-
-    <figure class="blog-banner-box">
-      <img src="./assets/images/life-logs-1.jpeg" alt="life-logs-1" loading="lazy">
-                </figure>
-
-    <div class="blog-content">
-
-      <div class="blog-meta">
-        <p class="blog-category">Recognition</p>
-
-        <span class="dot"></span>
-
-        <time datetime="2022-02-23">Jan 2024</time>
-      </div>
-
-      <h3 class="h3 blog-item-title">Got featured on a Japanese TV show - Ikegami Sensei</h3>
-
-      <p class="blog-text">
-      </p>
-
-    </div>
-
-  </a>
-</li>
-
-            <li class="blog-post-item">
-               <a href="javascript:void(0)">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/padi.jpeg" alt="Open Water Diver" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Certification</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Jul 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">received my Open Water Diver Certification!</h3>
-                    <p class="blog-text">
-                    </p>
-                </div>
-
-               </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/red-dot.jpg" alt="Red Dot Award 2024" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Recognition</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Jun 2024</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Received Red Dot Design Awards 2024</h3>
-
-                  <p class="blog-text">
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-                <a href="javascript:void(0)">
-
-                <figure class="blog-banner-box-vertical">
-                  <img src="./assets/images/live-sketch.jpeg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Creative</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Jul 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">A day out live setching in Osaka</h3>
-
-                  <p class="blog-text">
-            
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-                <a href="javascript:void(0)">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="javascript:void(0)">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #CONTACT
-      
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52503.36585999224!2d135.57687771821398!3d34.66832881397833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001206044b1e4bd%3A0xa6b71e68f4c4e7e5!2sHigashiosaka%2C%20Osaka!5e0!3m2!1sen!2sjp!4v1726238169442!5m2!1sen!2sjp"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-  <h3 class="h3 form-title">Contact Form</h3>
-
-  <form action="https://formspree.io/f/mgvwbley" method="POST" class="form">
-
-    <div class="input-wrapper">
-      <input type="text" name="fullname" class="form-input" placeholder="Full name" required>
-
-      <input type="email" name="email" class="form-input" placeholder="Email address" required>
-    </div>
-
-    <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
-
-    <button class="form-btn" type="submit">
-      <ion-icon name="paper-plane"></ion-icon>
-      <span>Send Message</span>
-    </button>
-
-  </form>
-</section>
 
       </article>
 
@@ -894,19 +243,7 @@ This approach not only enables us to differentiate between acceptable and defect
 
   </main>
 
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
+  <script type="module" src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
