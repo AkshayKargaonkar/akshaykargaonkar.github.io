@@ -1,5 +1,72 @@
 'use strict';
 
+// ------------------------------------------------------------------
+// Language toggle (EN / JA)
+// ------------------------------------------------------------------
+// How it works:
+//   - Every translatable element carries data-en and data-ja attributes.
+//   - applyLanguage() swaps textContent to the right version.
+//   - The choice is saved to localStorage and restored on every page load.
+//   - The toggle button itself shows the *opposite* language label so it
+//     acts as a "switch to" indicator rather than a "current" indicator.
+
+function applyLanguage(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = (lang === 'ja' && el.dataset.ja) ? el.dataset.ja : el.dataset.en;
+
+    // A <p> containing only <br> tags is still a text element — swap it with
+    // textContent (which removes the <br>s, which is fine since the translation
+    // is plain text without line breaks).
+    // Elements with meaningful child elements like <figure> or <p> are skipped
+    // here because their own child <p> tags carry the data-en/data-ja attributes.
+    const onlyBrChildren = Array.from(el.children).every(c => c.tagName === 'BR');
+
+    if (el.children.length === 0 || onlyBrChildren) {
+      el.textContent = text;
+    }
+  });
+
+  // swap input/textarea placeholders
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = (lang === 'ja' && el.dataset.placeholderJa)
+      ? el.dataset.placeholderJa
+      : el.dataset.placeholderEn;
+  });
+
+  // swap CV iframe src between CV.pdf and CVJP.pdf
+  const cvIframe = document.querySelector('iframe[data-src-ja]');
+  if (cvIframe) {
+    // use data-src-en (never removed) not data-src (removed after first lazy-load)
+    const newSrc = (lang === 'ja') ? cvIframe.dataset.srcJa : cvIframe.dataset.srcEn;
+    if (cvIframe.src && !cvIframe.src.endsWith('about:blank')) {
+      cvIframe.src = newSrc;
+    }
+    // update so the lazy-load handler picks the right file on first open
+    cvIframe.dataset.activeSrc = newSrc;
+  }
+
+  // update the <html lang="..."> attribute so the CSS :lang() selector
+  // can show/hide the correct toggle label
+  document.documentElement.lang = lang;
+
+  localStorage.setItem('lang', lang);
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  const langBtn = document.getElementById('lang-toggle');
+  if (!langBtn) return;
+
+  // restore the last chosen language, defaulting to English
+  applyLanguage(localStorage.getItem('lang') || 'en');
+
+  langBtn.addEventListener('click', function () {
+    const current = document.documentElement.lang || 'en';
+    applyLanguage(current === 'en' ? 'ja' : 'en');
+  });
+});
+
+// ------------------------------------------------------------------
+
 // controls whether the frame-sequence animations on the Designs tab
 // are allowed to keep looping (paused while that tab isn't visible)
 let designsAnimationActive = false;
@@ -146,7 +213,8 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
-    const clickedPageName = this.innerHTML.toLowerCase();
+    // use data-en to get the page name reliably regardless of current language
+    const clickedPageName = (this.dataset.en || this.innerHTML).toLowerCase();
 
     for (let i = 0; i < pages.length; i++) {
       if (clickedPageName === pages[i].dataset.page) {
@@ -160,8 +228,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
     // highlight the clicked nav link and remove active from all others
     // (done separately so the highlight is always correct regardless of
     // whether the navbar order matches the article DOM order)
+    // highlight the clicked link — use data-en for matching, not innerHTML,
+    // because innerHTML is swapped to Japanese text in Japanese mode
     for (let i = 0; i < navigationLinks.length; i++) {
-      if (navigationLinks[i].innerHTML.toLowerCase() === clickedPageName) {
+      const linkName = (navigationLinks[i].dataset.en || navigationLinks[i].innerHTML).toLowerCase();
+      if (linkName === clickedPageName) {
         navigationLinks[i].classList.add("active");
       } else {
         navigationLinks[i].classList.remove("active");
@@ -174,7 +245,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
     if (shownPage) {
       const lazyIframe = shownPage.querySelector("iframe[data-src]");
       if (lazyIframe) {
-        lazyIframe.src = lazyIframe.dataset.src;
+        // use data-active-src if the language switcher has set it, otherwise data-src
+        const src = lazyIframe.dataset.activeSrc || lazyIframe.dataset.src;
+        lazyIframe.src = src;
         lazyIframe.removeAttribute("data-src");
       }
     }
@@ -182,7 +255,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
     // only run the Designs-tab frame animations while that tab is visible,
     // instead of letting them loop forever in the background
     designsAnimationActive = (clickedPageName === "designs");
-
     // pause/play all Designs-tab video elements when switching tabs
     ["rolling-bidet", "rolling-faucethead", "rolling-lixil", "rolling-ozone"].forEach((id) => {
       const vid = document.getElementById(id);
