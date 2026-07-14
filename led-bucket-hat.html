@@ -25,6 +25,13 @@
 
 <body>
 
+  <!-- Language toggle — fixed top-right corner -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
+
+
   <!--
     - #MAIN
   -->
@@ -44,13 +51,13 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
 
-          <p class="title">Research and Development Engineer</p>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -70,7 +77,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Email</p>
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
 
               <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
             </div>
@@ -84,7 +91,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
 
               <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
             </div>
@@ -98,9 +105,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
 
-              <address>Osaka, JAPAN</address>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
             </div>
 
           </li>
@@ -153,7 +160,7 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <a href="/index.html" class="navbar-link active" data-nav-link>Main Menu</a>
+            <a href="/index.html" class="navbar-link active" data-nav-link data-en="Main Menu" data-ja="メインメニュー">Main Menu</a>
           </li>
 
         </ul>
@@ -167,7 +174,7 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">360&deg; LED Matrix Bucket Hat <br> for the Japanese Grand Prix</h2>
+          <h2 class="h2 article-title" data-en="360° LED Matrix Bucket Hat for the Japanese Grand Prix" data-ja="日本グランプリのための360° LEDマトリックス バケットハット">360&deg; LED Matrix Bucket Hat <br> for the Japanese Grand Prix</h2>
         </header>
 
         <figure class="project-img">
@@ -176,7 +183,9 @@
 
         <section class="about-text">
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="This was my third visit to Suzuka Circuit. For any F1 fan, Suzuka is a pilgrimage. Japanese fans show up to the race weekend in the most creative hats and outfits I have ever seen. That got me thinking. I wanted to build something for the race that no one had seen before."
+             data-ja="鈴鹿サーキットへは3度目の訪問でした。F1ファンにとって鈴鹿は聖地です。日本のファンは、これまで見た中で最もクリエイティブな帽子や衣装でレース週末に現れます。それが発想のきっかけになりました。誰も見たことのないものを作りたいと思いました。">
             This was my third visit to Suzuka Circuit. For any F1 fan, Suzuka is a pilgrimage. Japanese fans show up to the race weekend in the most creative hats and outfits I have ever seen. That got me thinking. I wanted to build something for the race that no one had seen before.
           </p>
 
@@ -184,15 +193,19 @@
             <img src="./assets/led-hat/fan-hats-inspiration.webp" alt="Examples of creative hats worn by Japanese Formula 1 fans at Suzuka" loading="lazy">
           </figure>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Motivation</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Motivation" data-ja="制作のきっかけ">Motivation</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="Being an electronics guy and a petrolhead, my first thought was something with LEDs. I did some research and found that LED matrix caps already exist, but they only cover the front of the cap. I wanted to go further. A bucket hat with LED matrix going all the way around, 360 degrees. Something you can see from any angle in the crowd."
+             data-ja="電子工作好きかつ車好きとして、まず思い浮かんだのはLEDを使ったものでした。調べてみると、LEDマトリックスキャップはすでに存在しましたが、前面しかカバーしていませんでした。もっと先を行きたいと思いました。360度全方向にLEDマトリックスが巻き付いたバケットハット。群衆のどの角度からでも見えるものです。">
             Being an electronics guy and a petrolhead, my first thought was something with LEDs. I did some research and found that LED matrix caps already exist, but they only cover the front of the cap. I wanted to go further. A bucket hat with LED matrix going all the way around, 360 degrees. Something you can see from any angle in the crowd.
           </p>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Sourcing the hardware</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Sourcing the hardware" data-ja="ハードウェアの調達">Sourcing the hardware</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="I looked for LED matrix panels that were cheap but still easy to control. After comparing a few options I went with two 32x64 LED matrix panels from AliExpress. The plan was to connect the two panels side by side around the hat, with a small overlap where they meet, so the display wraps all the way around."
+             data-ja="安価でも制御しやすいLEDマトリックスパネルを探しました。いくつかの選択肢を比較した結果、AliExpressで32×64のLEDマトリックスパネルを2枚購入しました。2枚のパネルをハットの周りに並べ、接合部で少し重ねることで、ディスプレイが全周を覆う計画でした。">
             I looked for LED matrix panels that were cheap but still easy to control. After comparing a few options I went with two 32x64 LED matrix panels from AliExpress. The plan was to connect the two panels side by side around the hat, with a small overlap where they meet, so the display wraps all the way around.
           </p>
 
@@ -200,13 +213,17 @@
             <img src="./assets/led-hat/matrix-wiring.jpg" alt="Two 32x64 LED matrix panels connected together before mounting" loading="lazy">
           </figure>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Choosing the brains: ESP32 + WLED</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Choosing the brains: ESP32 + WLED" data-ja="コントローラーの選定：ESP32 + WLED">Choosing the brains: ESP32 + WLED</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="While waiting for the panels to arrive (about a week), I started thinking about how to control them. I did not want a hat that just shows one fixed message. I wanted to control it live, at any point, from my phone. ESP32 was the obvious choice as the controller."
+             data-ja="パネルの到着（約1週間）を待つ間、制御方法を考え始めました。一つの固定メッセージを表示するだけのハットは望んでいませんでした。いつでもスマートフォンからリアルタイムで制御したかったのです。コントローラーにはESP32が最適な選択でした。">
             While waiting for the panels to arrive (about a week), I started thinking about how to control them. I did not want a hat that just shows one fixed message. I wanted to control it live, at any point, from my phone. ESP32 was the obvious choice as the controller.
           </p>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="For sending data to the ESP32, I wanted it to be as easy as sending a text. That is where WLED came in. It is an open source firmware for LED controllers that works over WiFi. It also has its own iOS and Android app, so I could just open the app on my phone and change what the hat shows in real time, no laptop needed."
+             data-ja="ESP32へのデータ送信は、テキストを送るくらい簡単にしたいと思っていました。そこで登場したのがWLEDです。WiFiで動作するLEDコントローラー向けのオープンソースファームウェアで、iOS・Androidアプリも用意されています。スマホでアプリを開くだけでリアルタイムに表示内容を変更でき、ノートパソコンは不要です。">
             For sending data to the ESP32, I wanted it to be as easy as sending a text. That is where <strong>WLED</strong> came in. It is an open source firmware for LED controllers that works over WiFi. It also has its own iOS and Android app, so I could just open the app on my phone and change what the hat shows in real time, no laptop needed.
           </p>
 
@@ -214,25 +231,33 @@
             <img src="./assets/led-hat/wled.jpg" alt="WLED app interface used to control the LED matrix" loading="lazy">
           </figure>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Bring-up and testing</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Bring-up and testing" data-ja="動作確認とテスト">Bring-up and testing</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="Once the panels were connected to the ESP32, I used WLED's built-in configuration to set exactly which LEDs are active across the combined panel. First tests were simple, solid colors, dynamic effects, and the built-in text feature, just to make sure everything was wired correctly."
+             data-ja="パネルをESP32に接続した後、WLEDの内蔵設定を使って結合パネル全体でどのLEDを有効にするか細かく設定しました。最初のテストはシンプルに、単色、ダイナミックエフェクト、内蔵テキスト機能を試し、配線が正しいことを確認しました。">
             Once the panels were connected to the ESP32, I used WLED's built-in configuration to set exactly which LEDs are active across the combined panel. First tests were simple, solid colors, dynamic effects, and the built-in text feature, just to make sure everything was wired correctly.
           </p>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Custom graphics and hitting ESP32's limits</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Custom graphics and hitting ESP32's limits" data-ja="カスタムグラフィックとESP32の限界">Custom graphics and hitting ESP32's limits</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="Once the basics were working, I moved to custom graphics. I used Pixel Magic Tool, an open source tool that converts images and GIFs into WLED JSON files. This is how I made the rotating F1 logo."
+             data-ja="基本動作が確認できたら、カスタムグラフィックに移りました。画像やGIFをWLED JSONファイルに変換するオープンソースツール「Pixel Magic Tool」を使用し、これで回転するF1ロゴを作りました。">
             Once the basics were working, I moved to custom graphics. I used <strong>Pixel Magic Tool</strong>, an open source tool that converts images and GIFs into WLED JSON files. This is how I made the rotating F1 logo.
           </p>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="Storage on the ESP32 is limited though. I found that animations with more than 6 frames slow everything down noticeably, and you can see it on the panel. So I kept just one custom animation, the F1 logo, and used WLED's built-in effects for the rest. Scrolling text, falling stars, and mixing effects on top of each other. It looked really good."
+             data-ja="ただし、ESP32のストレージには限りがあります。6フレームを超えるアニメーションは全体的に目に見えて遅くなり、パネルに現れることがわかりました。そのため、カスタムアニメーションはF1ロゴの1つだけにし、残りはWLEDの内蔵エフェクトを活用しました。スクロールテキスト、流れ星、エフェクトの重ね合わせなど、見た目はとても良かったです。">
             Storage on the ESP32 is limited though. I found that animations with more than 6 frames slow everything down noticeably, and you can see it on the panel. So I kept just one custom animation, the F1 logo, and used WLED's built-in effects for the rest. Scrolling text, falling stars, and mixing effects on top of each other. It looked really good.
           </p>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Pixel Magic Tool</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Pixel Magic Tool" data-ja="Pixel Magic Tool">Pixel Magic Tool</h3>
 
-          <p style="margin-bottom: 20px; text-align: justify;">
+          <p style="margin-bottom: 20px; text-align: justify;"
+             data-en="Pixel Magic Tool is the open source tool I used for making custom WLED animations. You upload any image or GIF, set your matrix dimensions, and it gives you a JSON file you push straight to WLED. No coding needed. Click the image below to check it out on GitHub."
+             data-ja="Pixel Magic Toolは、カスタムWLEDアニメーション制作に使用したオープンソースツールです。画像やGIFをアップロードし、マトリックスのサイズを設定すると、WLEDに直接適用できるJSONファイルが生成されます。コーディング不要です。下の画像をクリックしてGitHubで確認してみてください。">
             Pixel Magic Tool is the open source tool I used for making custom WLED animations. You upload any image or GIF, set your matrix dimensions, and it gives you a JSON file you push straight to WLED. No coding needed. Click the image below to check it out on GitHub.
           </p>
 
@@ -242,15 +267,19 @@
             </figure>
           </a>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Making it wearable</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Making it wearable" data-ja="ウェアラブルに仕上げる">Making it wearable</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="With everything working, I focused on making the wiring clean and sturdy. I used JST connectors and electrical tape so the connections are solid but still easy to take apart if needed. The ESP32 itself sits in my bag, connected to a power bank, and connects to my phone's hotspot when it powers on. The hat is just the display."
+             data-ja="すべて動作するようになってから、配線をきれいで頑丈にすることに集中しました。JSTコネクターと絶縁テープを使い、接続はしっかりしていながらも必要に応じて取り外せるようにしました。ESP32自体はバッグの中に入れ、モバイルバッテリーで駆動し、電源を入れるとスマホのホットスポットに接続します。ハットはディスプレイだけです。">
             With everything working, I focused on making the wiring clean and sturdy. I used JST connectors and electrical tape so the connections are solid but still easy to take apart if needed. The ESP32 itself sits in my bag, connected to a power bank, and connects to my phone's hotspot when it powers on. The hat is just the display.
           </p>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">The result</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="The result" data-ja="結果">The result</h3>
 
-          <p style="margin-bottom: 30px; text-align: justify;">
+          <p style="margin-bottom: 30px; text-align: justify;"
+             data-en="It was a hit. People kept stopping me to ask about it and take photos. Some even asked if they could buy it. That kind of reaction is exactly why I build things like this. No real purpose, just fun, and hopefully something that makes people smile."
+             data-ja="大好評でした。多くの人が立ち止まって話しかけてきて、写真を撮っていました。売ってほしいと言う人もいました。そういう反応こそが、こういうものを作る理由です。特別な目的はなく、ただ楽しくて、誰かを笑顔にできればそれでいい。">
             It was a hit. People kept stopping me to ask about it and take photos. Some even asked if they could buy it. That kind of reaction is exactly why I build things like this. No real purpose, just fun, and hopefully something that makes people smile.
           </p>
 
@@ -274,9 +303,11 @@
             </figure>
           </div>
 
-          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;">Shared on r/WLED as an open source project</h3>
+          <h3 class="h3" style="margin-top: 40px; margin-bottom: 15px;" data-en="Shared on r/WLED as an open source project" data-ja="オープンソースプロジェクトとしてr/WLEDでシェア">Shared on r/WLED as an open source project</h3>
 
-          <p style="margin-bottom: 20px; text-align: justify;">
+          <p style="margin-bottom: 20px; text-align: justify;"
+             data-en="The project was shared on Reddit's WLED community, including a short video of the hat in action:"
+             data-ja="このプロジェクトはRedditのWLEDコミュニティでシェアされ、ハットの動作動画も含まれています：">
             The project was shared on Reddit's WLED community, including a short video of the hat in action:
           </p>
 
@@ -285,8 +316,8 @@
               <ion-icon name="logo-reddit"></ion-icon>
             </div>
             <div class="reddit-link-card-text">
-              <p class="reddit-link-card-title">My new bucket hat for the Formula One Japanese Grand Prix</p>
-              <p class="reddit-link-card-meta">r/WLED &middot; view the post &amp; video on Reddit</p>
+              <p class="reddit-link-card-title" data-en="My new bucket hat for the Formula One Japanese Grand Prix" data-ja="F1日本グランプリのための新しいバケットハット">My new bucket hat for the Formula One Japanese Grand Prix</p>
+              <p class="reddit-link-card-meta" data-en="r/WLED · view the post &amp; video on Reddit" data-ja="r/WLED &middot; Redditで投稿と動画を見る">r/WLED &middot; view the post &amp; video on Reddit</p>
             </div>
             <ion-icon name="open-outline" class="reddit-link-card-arrow"></ion-icon>
           </a>
