@@ -5,16 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>system-kitchen</title>
+  <title>Systems Kitchen: IoT | Akshay Kargaonkar</title>
+  <meta name="description" content="Case study: IoT-enabled systems kitchen project by Akshay Kargaonkar at DG Takano.">
 
-  <!--
-    - favicon
-
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/5a-faucet/5a-faucet-3.jpg" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
@@ -72,6 +69,13 @@
 
 <body>
 
+  <!-- Language toggle — fixed top-right corner -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
+
+
   <!--
     - #MAIN
   -->
@@ -91,13 +95,13 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
 
-          <p class="title">Research and Development Engineer</p>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -117,7 +121,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Email</p>
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
 
               <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
             </div>
@@ -131,7 +135,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
 
               <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
             </div>
@@ -145,9 +149,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
 
-              <address>Osaka, JAPAN</address>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
             </div>
 
           </li>
@@ -159,19 +163,19 @@
        <ul class="social-list">
 
   <li class="social-item">
-    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank">
+    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-linkedin"></ion-icon>
     </a>
   </li>
 
   <li class="social-item">
-    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank">
+    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-github"></ion-icon>
     </a>
   </li>
 
   <li class="social-item">
-    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank">
+    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-instagram"></ion-icon>
     </a>
   </li>
@@ -202,7 +206,7 @@
 
           <li class="navbar-item">
            <!-- <button class="navbar-link active" data-nav-link>Projects</button>-->
-            <a href="/index.html" class="navbar-link active" data-nav-link>Main Menu</a>
+            <a href="/index.html" class="navbar-link active" data-nav-link data-en="Main Menu" data-ja="メインメニュー">Main Menu</a>
           </li>
           
         </ul>
@@ -216,17 +220,19 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">System Kitchen: Real-Time IoT Tracking of Water Use</h2>
+          <h2 class="h2 article-title" data-en="System Kitchen: Real-Time IoT Tracking of Water Use" data-ja="システムキッチン：リアルタイムIoT水使用量トラッキング">System Kitchen: Real-Time IoT Tracking of Water Use</h2>
         </header>
 
         <figure class="project-img">
-                  <img src="./assets/system-kitchen/system-kitchen-1.jpg" alt="system-kitchen-1" loading="lazy" width="180">
+                  <img src="./assets/system-kitchen/system-kitchen-1.jpg" alt="システムキッチン外観" loading="lazy">
         </figure>
 
         
         <section class="about-text">
           
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="I led a small engineering team in the mechanical development of an IoT-integrated kitchen faucet, focusing on delivering a reliable and scalable solution. This included designing and embedding flow and temperature sensors directly into a custom faucet body, with careful consideration for manufacturability and cost efficiency."
+             data-ja="IoT統合キッチン蛇口の機械開発において小規模なエンジニアリングチームをリードしました。信頼性が高くスケーラブルなソリューションの提供に注力し、カスタム蛇口ボディへのフロー・温度センサーの設計・組み込みを、製造性とコスト効率を考慮しながら実現しました。">
             I led a small engineering team in the mechanical development of an IoT-integrated kitchen faucet, 
             focusing on delivering a reliable and scalable solution. 
             This included designing and embedding flow and temperature sensors directly into a custom faucet body, 
@@ -235,10 +241,12 @@
           </p>
 
           <figure class="project-img">
-                  <img src="./assets/system-kitchen/system-kitchen-2.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+                  <img src="./assets/system-kitchen/system-kitchen-2.jpg" alt="フロー・温度センサー統合" loading="lazy">
           </figure>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="A conventional faucet body was transformed into a smart system by integrating a flow sensor to monitor water usage, a thermistor for precise temperature measurement, and an LED indicator to provide intuitive feedback. The LED glows red to indicate connection issues, green for a stable Wi-Fi link, and blue when data recording is in progress."
+             data-ja="従来の蛇口ボディを、水使用量を監視するフローセンサー、精密な温度測定用のサーミスター、直感的なフィードバックを提供するLEDインジケーターを統合したスマートシステムへと改良しました。LEDは接続問題を赤、安定したWi-Fi接続を緑、データ記録中を青で表示します。">
             A conventional faucet body was transformed into a smart system by integrating a flow sensor to monitor water usage, 
             a thermistor for precise temperature measurement, 
             and an LED indicator to provide intuitive feedback. 
@@ -247,10 +255,12 @@
           </p>
 
           <figure class="project-img">
-                  <img src="./assets/system-kitchen/system-kitchen-3.jpg" alt="system-kitchen-2" loading="lazy" width="180">
+                  <img src="./assets/system-kitchen/system-kitchen-3.jpg" alt="システム回路図" loading="lazy">
           </figure>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The above diagram illustrates the schematic and core logic of the system. It employs pseudo-parallelism through concurrency, enabling the ESP32-C3 to record sensor data and transmit it over Wi-Fi simultaneously without blocking other operations. By leveraging FreeRTOS, the system efficiently manages independent tasks such as data acquisition and Wi-Fi communication so that each runs without interrupting the other. A queue mechanism ensures that data is reliably buffered before transmission, safeguarding against potential losses during temporary network disruptions."
+             data-ja="上の図はシステムの回路図と核となるロジックを示しています。並行処理による擬似並列処理を採用しており、ESP32-C3がセンサーデータの記録とWi-Fi送信を同時に行えます。FreeRTOSを活用することで、データ取得とWi-Fi通信などの独立したタスクを効率的に管理します。キューメカニズムにより、送信前のデータが確実にバッファリングされ、一時的なネットワーク中断による損失を防ぎます。">
             The above diagram illustrates the schematic and core logic of the system. 
             It employs pseudo-parallelism through concurrency, enabling the ESP32-C3 to record sensor data and transmit it over Wi-Fi simultaneously without blocking other operations.
             By leveraging FreeRTOS, the system efficiently manages independent tasks—such as data acquisition and Wi-Fi communication—so that each runs without interrupting the other.
@@ -259,18 +269,22 @@
           </p>
 
           <figure class="project-img">
-                  <img src="./assets/system-kitchen/k-smart.png" alt="system-kitchen-2" loading="lazy" width="180">
+                  <img src="./assets/system-kitchen/k-smart.png" alt="K-Smartダッシュボード" loading="lazy">
           </figure>
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="Users can easily access their data by logging into their account on the K-Smart website. The information is presented in a clean, minimalistic layout that makes it simple to review and understand."
+             data-ja="ユーザーはK-Smartウェブサイトのアカウントにログインするだけでデータにアクセスできます。情報はシンプルで最小限のレイアウトで表示され、確認・理解しやすい設計になっています。">
             Users can easily access their data by logging into their account on the K-Smart website. The information is presented in a clean, minimalistic layout that makes it simple to review and understand.
           </p>
 
 
-          <h3 class="h3 testimonials-title">Future scope</h3>
+          <h3 class="h3 testimonials-title" data-en="Future scope" data-ja="今後の展望">Future scope</h3>
 
 
-          <p  style="margin-bottom: 50px; text-align:justify;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The system can be further optimized by eliminating the external USB power source. By integrating a low-power nRF5340 microcontroller, a 3.7V lithium battery, and a micro-hydro generator, the setup can sustain itself by harvesting energy directly from water flow, continually charging the battery during operation. This would enable a fully autonomous, self-powered solution with significantly reduced energy requirements."
+             data-ja="外部USB電源を排除することで、システムをさらに最適化できます。低消費電力nRF5340マイクロコントローラー、3.7Vリチウムバッテリー、マイクロ水力発電機を統合することで、水流から直接エネルギーを回収し、動作中に継続的にバッテリーを充電する自立型システムが実現できます。完全に自律的な自己電力供給型ソリューションとなり、エネルギー要件を大幅に削減できます。">
             The system can be further optimized by eliminating the external USB power source. By integrating a low-power nRF5340 microcontroller, a 3.7 V lithium battery, and a micro-hydro generator, the setup can sustain itself by harvesting energy directly from water flow, continually charging the battery during operation. This would enable a fully autonomous, 
             self-powered solution with significantly reduced energy requirements.
           </p>
@@ -291,7 +305,7 @@
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item="" style="padding: 30px;">
- <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank">
+ <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank" rel="noopener noreferrer">
                 <figure class="testimonials-avatar-box">
                   <img src="./assets/5a-faucet/whipsaw.svg" alt="whipsaw" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
                 </figure>
@@ -306,7 +320,7 @@
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item="" style="padding: 30px;">
-<a href="https://meliordesign.com/" target="_blank">
+<a href="https://meliordesign.com/" target="_blank" rel="noopener noreferrer">
                 <figure class="testimonials-avatar-box">
                  <img src="./assets/5a-faucet/meliordesign.png" alt="meliordesign" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
 </a>
@@ -658,7 +672,7 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank">
+  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank" rel="noopener noreferrer">
 
     <figure class="blog-banner-box">
       <img src="./assets/images/life-logs-1.jpeg" alt="life-logs-1" loading="lazy">
@@ -710,7 +724,7 @@
             </li>
 
             <li class="blog-post-item">
-              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank">
+              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank" rel="noopener noreferrer">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/red-dot.jpg" alt="Red Dot Award 2024" loading="lazy">
@@ -883,7 +897,7 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+<script type="module" src="./assets/js/script.js"></script>
 
   <!--
     - ionicon link
