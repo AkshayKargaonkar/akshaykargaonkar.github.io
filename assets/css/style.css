@@ -2560,6 +2560,60 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
 
+  /* ===== Strings physics section ===== */
+  
+.strings-section {
+  margin: 0px 0px 50px;                        /* room so swung strings don't hit neighbours */
+}
+
+.strings-figure {
+  --strings-ink: var(--light-gray);      /* letter colour = your body text */
+  --strings-font: 'Poppins', sans-serif;
+  --strings-weight: 300;
+
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: none;
+  border: none;
+  cursor: grab;
+  touch-action: none;
+  overflow: visible;                     /* let strings swing outside */
+}
+.strings-figure:active { cursor: grabbing; }
+
+/* full-width box the strings hang from, text centred */
+.strings-peg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  height: 30px;                          /* MUST match topInset in strings.js */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid hsla(0, 0%, 84%, 0.25);
+  border-radius: 8px;
+  background: hsla(0, 0%, 100%, 0.02);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  letter-spacing: 0.02em;
+  pointer-events: none;                  /* never blocks dragging */
+}
+
+#strings-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  z-index: 1;
+  top:10px;
+
+}
+
+
   /**
 	 * RESUME
 	 */
