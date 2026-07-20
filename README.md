@@ -1,1 +1,1 @@
-# Akshay - Personal portfolio
+# Akshay Kargaonkar — Mechatronics / R&D Engineer
