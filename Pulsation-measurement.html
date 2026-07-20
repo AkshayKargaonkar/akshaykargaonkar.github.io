@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulsation Measurement Device | Akshay Kargaonkar</title>
+  <meta name="description" content="Case study: development of a pulsation measurement device by Akshay Kargaonkar at DG Takano.">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/IMG_1392.jpg" type="image/x-icon">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    @media (min-width: 370px) {
+      #test  { width: 200px; }
+      #testv { width: 100px; }
+      #dof   { width: 100px; }
+      #switch{ width: 150px; }
+    }
+    @media (min-width: 566px) {
+      #dof   { width: 150px; }
+      #switch{ width: 225px; }
+    }
+    @media (min-width: 660px) {
+      #dof   { width: 180px; }
+      #switch{ width: 270px; }
+    }
+    @media (min-width: 1024px) {
+      #dof   { width: 250px; }
+      #switch{ width: 375px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Language toggle — fixed top-right corner -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
+
+
+  <main>
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/IMG_1392.jpg" alt="Akshay Kargaonkar" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
+              <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
+              <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+    <div class="main-content">
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="/index.html#projects" class="navbar-link active" data-nav-link data-en="Main Menu" data-ja="メインメニュー">Main Menu</a>
+          </li>
+        </ul>
+      </nav>
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title" data-en="Pulsation Measurement Device" data-ja="脈動測定装置">Pulsation Measurement Device</h2>
+        </header>
+        
+        <ul class="design-skills">
+        <li data-en="Sensor Integration" data-ja="センサー統合">Sensor Integration</li>
+        <li data-en="Analog Signal Conditioning" data-ja="アナログ信号処理">Analog Signal Conditioning</li>
+        <li data-en="Circuit Design" data-ja="回路設計">Circuit Design</li>
+        <li data-en="Signal Processing" data-ja="信号処理">Signal Processing</li>
+        <li data-en="Instrumentation" data-ja="計装">Instrumentation</li>
+      </ul>
+
+        <div class="test-gallery" style="grid-template-columns:3fr 1fr;">
+          <figure class="project-img">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-1.jpg" alt="Pulsation measurement device overview" loading="lazy">
+          </figure>
+          <figure class="pulsation-side-figure">
+            <video class="pulsation-video" autoplay muted loop playsinline
+                   poster="./assets/pulsation-measurement/pulsation-measurement-1.jpg"
+                   preload="none" aria-label="Pulsation flow animation">
+              <source src="./assets/pulsation-measurement/pulsation-1.webm" type="video/webm">
+            </video>
+          </figure>
+        </div>
+       
+        <section class="about-text">
+          
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="Bubble90 is the flagship product of DG TAKANO, widely sold across Japan and adopted by numerous national restaurant chains. It utilizes a unique pulsating flow generated entirely without moving parts, relying on the Venturi effect: water pressure from the tap creates suction that draws in air and mixes it with the water, producing a distinctive pulsating stream. Because Bubble90 is manufactured with extremely tight tolerances, even minor dimensional deviations can significantly impact the quality of pulsation. Traditionally, the pulsation quality was assessed manually — operators would feel the water flow by hand to judge its characteristics. This method is inherently prone to human error and inconsistency. Recognizing the need for a more objective, reliable, and repeatable evaluation method, this project was initiated to develop a dedicated device to measure and quantify the pulsation quality of Bubble90 units."
+             data-ja="Bubble90はDGタカノの主力製品であり、日本全国で広く販売され、多くの全国チェーン飲食店にも採用されています。可動部品を一切使わず、ベンチュリ効果を利用した独自の脈動流を発生させます。蛇口の水圧が吸引力を生み出し、空気を水に混合させることで特徴的な脈動流を生成します。Bubble90は非常に厳しい公差で製造されているため、わずかな寸法のばらつきでも脈動品質に大きな影響を与えます。従来、脈動品質は作業者が手で水流を感じることで評価していましたが、この方法は人的誤差や個人差が生じやすいという問題がありました。より客観的・信頼性の高い評価手法の必要性から、Bubble90ユニットの脈動品質を定量的に測定・評価する専用装置を開発するプロジェクトが開始されました。">
+            Bubble90 is the flagship product of DG TAKANO, widely sold across Japan and adopted by numerous national restaurant chains. It utilizes a unique pulsating flow generated entirely without moving parts, relying on the Venturi effect: water pressure from the tap creates suction that draws in air and mixes it with the water, producing a distinctive pulsating stream.
+Because Bubble90 is manufactured with extremely tight tolerances, even minor dimensional deviations can significantly impact the quality of pulsation. Traditionally, the pulsation quality was assessed manually—operators would feel the water flow by hand to judge its characteristics. This method is inherently prone to human error and inconsistency.
+Recognizing the need for a more objective, reliable, and repeatable evaluation method, this project was initiated to develop a dedicated device to measure and quantify the pulsation quality of Bubble90 units. This ensures consistent product performance, enhances quality assurance, and supports DG TAKANO's commitment to precision manufacturing.
+          </p>
+
+          <figure class="project-img">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-2.jpg" alt="Pulsation measurement sensor setup" loading="lazy">
+          </figure>
+
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The idea was to use a Force Resistance Sensor (FRS) to detect the pulsation amplitude and frequency of the water flow produced by Bubble90. The analog signal from the FRS is recorded using an oscilloscope, capturing real-time waveform data. This data is then exported and processed using a Python script. The script performs a Fast Fourier Transform (FFT) on the signal, which decomposes the complex waveform into its constituent frequencies. This allows us to identify the dominant frequency component and measure its amplitude, giving a quantitative assessment of the pulsation strength. By automating this analysis, we achieve a consistent, objective method to evaluate the pulsation characteristics, replacing subjective manual testing."
+             data-ja="Bubble90が生成する水流の脈動振幅と周波数を検出するため、感圧センサー（FRS）を使用しました。FRSからのアナログ信号はオシロスコープで記録され、脈動のリアルタイム波形データを取得します。このデータはPythonスクリプトで処理され、高速フーリエ変換（FFT）によって複雑な波形を構成周波数に分解します。これにより、脈動周波数に対応する主要周波数成分とその振幅を特定し、脈動強度の定量的な評価が可能になります。この分析を自動化することで、主観的な手動検査に代わる一貫した客観的評価手法を実現しました。">
+            The idea was to use a Force Resistance Sensor (FRS) to detect the pulsation amplitude and frequency of the water flow produced by Bubble90. The sensor captures the force variations caused by the pulsating stream.
+
+The analog signal from the FRS is recorded using an oscilloscope, capturing real-time waveform data of the pulsation.
+
+This data is then exported and processed using a Python script.
+
+The script performs a Fast Fourier Transform (FFT) on the signal, which decomposes the complex waveform into its constituent frequencies.
+
+This allows us to identify the dominant frequency component (corresponding to the pulsation frequency) and measure its amplitude, giving a quantitative assessment of the pulsation strength.
+
+By automating this analysis, we achieve a consistent, objective method to evaluate the pulsation characteristics, replacing subjective manual testing and improving overall quality assurance.
+          </p>
+
+          <figure class="project-img">
+            <img src="./assets/pulsation-measurement/pulsation-measurement-3.jpg" alt="Circuit schematic iterations" loading="lazy">
+          </figure>
+
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The above diagram illustrates the schematic and core logic of the system design through multiple development iterations. Iteration 1: This initial approach employed a voltage divider circuit to monitor voltage fluctuations directly from the sensor. While straightforward, it lacked precision and was more susceptible to noise. Iteration 2: To improve measurement accuracy and protect the circuit, this version introduced a precision operational amplifier (op-amp) configuration along with diodes to guard against voltage spikes. Final Iteration: The final design incorporated electrolytic and ceramic capacitors to filter out high-frequency noise and smooth voltage variations. This was critical when converting AC 100V to DC 15V, ensuring a stable DC supply for the sensor and signal processing stages."
+             data-ja="上の図は、複数の開発イテレーションを経たシステム設計の回路図と核となるロジックを示しています。イテレーション1：センサーから直接電圧変動を監視する電圧分圧回路を採用したシンプルな初期アプローチ。精度に欠け、ノイズの影響を受けやすいという課題がありました。イテレーション2：測定精度の向上と回路保護のため、精密オペアンプ構成とサージ電圧対策のダイオードを追加。信号精度とシステムの堅牢性が向上しました。最終イテレーション：高周波ノイズのフィルタリングと電圧変動の平滑化のため、電解コンデンサとセラミックコンデンサを組み込みました。AC100VからDC15Vへの変換において安定した直流電源を確保し、センサーと信号処理段階の動作を保証しました。">
+            The above diagram illustrates the schematic and core logic of the system design through multiple development iterations: <br>
+
+Iteration 1:
+This initial, simplistic approach employed a voltage divider circuit to monitor voltage fluctuations directly from the sensor. While straightforward, it lacked precision and was more susceptible to noise. <br>
+
+Iteration 2:
+To improve measurement accuracy and protect the circuit, this version introduced a precision operational amplifier (op-amp) configuration along with diodes to guard against voltage spikes. This enhanced both signal clarity and system robustness. <br>
+
+Final Iteration:
+The final, more advanced design incorporated electrolytic and ceramic capacitors to filter out high-frequency noise and smooth voltage variations. This was critical when converting AC 100V to DC 15V, ensuring a stable DC supply for the sensor and signal processing stages.
+          </p>
+
+          <div class="test-gallery" style="grid-template-columns:2fr 1fr;">
+            <figure class="project-img">
+              <img src="./assets/pulsation-measurement/pulsation-measurement-4.jpg" alt="Oscilloscope measurement results" loading="lazy">
+            </figure>
+            <figure class="pulsation-side-figure">
+              <video class="pulsation-video" autoplay muted loop playsinline
+                     poster="./assets/pulsation-measurement/pulsation-measurement-4.jpg"
+                     preload="none" aria-label="Oscilloscope measurement animation">
+                <source src="./assets/pulsation-measurement/pulsation-2.webm" type="video/webm">
+              </video>
+            </figure>
+          </div>
+
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="After carefully tuning the variable resistor, we were able to record a substantial amount of data with minimal error using the oscilloscope. The results clearly demonstrated a distinct difference between a good and a defective sample of Bubble90. This approach not only enables us to differentiate between acceptable and defective units, but also quantifies how good a sample is by providing a percentage-based quality metric. This quantitative assessment adds significant value over the traditional pass/fail approach, offering deeper insights into product performance."
+             data-ja="可変抵抗を慎重に調整することで、オシロスコープを使用して誤差の少ない大量のデータを記録することができました。結果は、Bubble90の良品と不良品の間に明確な差異があることを示しました。このアプローチは良品・不良品の判別だけでなく、パーセンテージによる品質指標でサンプルの品質を定量化することも可能にします。従来の合否判定アプローチと比べて大きな付加価値をもたらし、製品性能に関するより深い洞察を提供します。">
+            After carefully tuning the variable resistor, we were able to record a substantial amount of data with minimal error using the oscilloscope. The results clearly demonstrated a distinct difference between a good and a defective sample of Bubble90. <br>
+
+This approach not only enables us to differentiate between acceptable and defective units, but also quantifies how good a sample is by providing a percentage-based quality metric. This quantitative assessment adds significant value over the traditional pass/fail approach, offering deeper insights into product performance.
+          </p>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="./assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

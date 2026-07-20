@@ -5,16 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5a-faucet</title>
+  <title>5a-Faucet — Product Development | Akshay Kargaonkar</title>
+  <meta name="description" content="Case study: development of the 5a-Faucet, a Red Dot Award-winning water-saving faucet system, by Akshay Kargaonkar at DG Takano.">
 
-  <!--
-    - favicon
-
+  <!-- favicon -->
   <link rel="shortcut icon" href="./assets/images/5a-faucet/5a-faucet-3.jpg" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- custom css link -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
@@ -72,6 +69,13 @@
 
 <body>
 
+  <!-- Language toggle — fixed top-right corner -->
+  <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+    <span class="lang-label-en">日本語</span>
+    <span class="lang-label-ja">English</span>
+  </button>
+
+
   <!--
     - #MAIN
   -->
@@ -91,13 +95,13 @@
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Akshay Kargaonkar">Akshay Kargaonkar</h1>
+          <h1 class="name" title="Akshay Kargaonkar" data-en="Akshay Kargaonkar" data-ja="カルガオンカル アクシャイ">Akshay Kargaonkar</h1>
 
-          <p class="title">Research and Development Engineer</p>
+          <p class="title" data-en="Research and Development Engineer" data-ja="研究開発エンジニア">Research and Development Engineer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+          <span data-en="Show Contacts" data-ja="連絡先を表示">Show Contacts</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -117,7 +121,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Email</p>
+              <p class="contact-title" data-en="Email" data-ja="メール">Email</p>
 
               <a href="mailto:ak2603kargaonkar@gmail.com" class="contact-link">ak2603kargaonkar@gmail.com</a>
             </div>
@@ -131,7 +135,7 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Phone</p>
+              <p class="contact-title" data-en="Phone" data-ja="電話">Phone</p>
 
               <a href="tel:+8108020726419" class="contact-link">+81-080-2072-6419</a>
             </div>
@@ -145,9 +149,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title" data-en="Location" data-ja="所在地">Location</p>
 
-              <address>Osaka, JAPAN</address>
+              <address data-en="Osaka, JAPAN" data-ja="大阪府、日本">Osaka, JAPAN</address>
             </div>
 
           </li>
@@ -159,19 +163,19 @@
        <ul class="social-list">
 
   <li class="social-item">
-    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank">
+    <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-linkedin"></ion-icon>
     </a>
   </li>
 
   <li class="social-item">
-    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank">
+    <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-github"></ion-icon>
     </a>
   </li>
 
   <li class="social-item">
-    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank">
+    <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
       <ion-icon name="logo-instagram"></ion-icon>
     </a>
   </li>
@@ -193,23 +197,48 @@
     <div class="main-content">
 
       <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="/index.html#projects" class="navbar-link active" data-nav-link data-en="Main Menu" data-ja="メインメニュー">Main Menu</a>
+          </li>
+          
+        </ul>
+
+      </nav>
+      
+      <!--
         - #CONTENT
       -->
 
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">5a-faucet: A water saving innovation with enhanced mobility</h2>
+          <h2 class="h2 article-title" data-en="5a-faucet: A water saving innovation with enhanced mobility" data-ja="5aファウセット：節水と高い可動性を実現したイノベーション">5a-faucet: A water saving innovation <br> with enhanced mobility</h2>
         </header>
-
+        <ul class="design-skills">
+          <li data-en="Plastic Injection Design" data-ja="プラスチック射出成形設計">Plastic Injection Design</li>
+          <li data-en="CNC" data-ja="CNC">CNC</li>
+          <li data-en="DFMEA" data-ja="DFMEA">DFMEA</li>
+          <li data-en="CAD" data-ja="CAD">CAD</li>
+          <li data-en="Design to Manufacturing" data-ja="設計から製造まで">Design to Manufacturing</li>
+        </ul>
         <figure class="project-img">
                   <img src="./assets/5a-faucet/5a-faucet-1.jpeg" alt="5a-faucet-1" loading="lazy" width="180">
         </figure>
+        
 
         
         <section class="about-text">
           
-          <p style="margin-bottom: 50px;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="During my time at DG TAKANO, I had the privilege of contributing to the 5a-Faucet project, an exciting collaboration with the renowned industrial design firm Whipsaw. This project aimed to create an innovative, water-saving faucet with a user-focused design."
+             data-ja="DGタカノ在籍中、著名なインダストリアルデザイン会社Whipsawとの共同プロジェクトである5aファウセットに携わる機会を得ました。このプロジェクトは、ユーザー中心の設計を取り入れた革新的な節水蛇口の開発を目指したものです。">
             During my time at DG TAKANO, I had the privilege of contributing to the 5a-Faucet project, an exciting collaboration 
             with the renowned industrial design firm Whipsaw. This project aimed to create an innovative, 
             water-saving faucet with a user-focused design.
@@ -229,7 +258,9 @@
 </div>
 
           
-           <p style="margin-bottom: 50px;">
+           <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="This faucet, named '5a' for the five degrees of freedom it offers, provides unparalleled spatial coverage, allowing the faucet-head, acting as the end-effector, to reach a broader operational area. This enhances usability and functionality, making it ideal for modern kitchen environment."
+             data-ja="「5a」という名称は5自由度（5DoF）に由来しており、蛇口ヘッドがエンドエフェクターとして広い作業領域をカバーできます。現代のキッチン環境に最適な使いやすさと機能性を実現しています。">
             This faucet, named "5a" for the five degrees of freedom it offers, provides unparalleled spatial coverage, allowing the faucet-head, acting as the end-effector,
              to reach a broader operational area. This enhances usability and functionality, making it ideal for modern kitchen environment.
           </p>
@@ -241,7 +272,9 @@
     <img id="switch" src="./assets/5a-faucet/switch-other-2.gif" alt="switch-other" loading="lazy" style="border-radius: 15px;">
   </figure>
 </div>
-          <p style="margin-bottom: 50px;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="My primary role in the project was the design and development of the faucet-head, which incorporated DG Takano's flagship Bubble90 Blue for pulsating flow. I focused on creating a unique aerated flow design, where water exits from the boundary of the faucet-head. This required careful regulation of the flow rate, pressure, and outlet shape to produce a stable, splash-free, and visually appealing flow. Achieving this involved many iterations. Unlike most faucets on the market, which use Neoperl aerators, we developed our own in-house aerator that integrates seamlessly with the Bubble90 and creates a striking conical flow."
+             data-ja="私の主な役割は、DGタカノの主力製品Bubble90 Blueの脈動流機能を組み込んだ蛇口ヘッドの設計・開発でした。水が蛇口ヘッドの外周から出る独自のエアレーション流設計を追求し、安定したスプラッシュのない美しい流れを実現するために、流量・圧力・出口形状を細かく調整しました。多くの試作を経て、市場の多くが採用するNeoperl社のエアレーターではなく、Bubble90とシームレスに統合される自社製エアレーターを開発し、印象的な円錐形の流れを生み出しました。">
             My primary role in the project was the design and development of the faucet-head, which incorporated DG Takano’s flagship Bubble90 Blue for pulsating flow. 
             I focused on creating a unique aerated flow design, where water exits from the boundary of the faucet-head. 
             This required careful regulation of the flow rate, pressure, and outlet shape to produce a stable, splash-free, and visually appealing flow. 
@@ -256,29 +289,38 @@
        <img id="testv" src="./assets/5a-faucet/5a-faucet-test-2.gif" alt="5a-faucet-test-2" loading="lazy" style="border-radius: 15px;">
     </figure>
     <figure style="border-radius: 10px;">
-        <video id="test" controls style="border-radius: 15px;">
-        <source src="./assets/5a-faucet/5a-faucet-test-3.MP4" type="video/mp4">
+        <video id="test" autoplay muted loop playsinline style="border-radius: 15px;">
+        <source src="./assets/5a-faucet/5a-faucet-test-3.webm" type="video/webm">
         </video>
     </figure>
 </div>
           -->
 
-         <div class="test-gallery">
+<div class="test-gallery">
   <figure>
     <img id="test1" src="./assets/5a-faucet/5a-faucet-test-1a.gif" alt="5a-faucet-test-1" loading="lazy" style="
     width: 100%;
-    margin-bottom: 10px;
-">
-    <video id="test3" controls="" style="width: 100%;">
-      <source src="./assets/5a-faucet/5a-faucet-test-3.MP4" type="video/mp4">
+    margin-bottom: 10px;">
+
+    <video id="test3" autoplay muted loop playsinline style="width: 100%;">
+      <source src="./assets/5a-faucet/5a-faucet-test-3.webm" type="video/webm">
     </video>
   </figure>
+
   <figure>
     <img id="test2" src="./assets/5a-faucet/5a-faucet-test-2.gif" alt="5a-faucet-test-2" loading="lazy" style="width: 100%;">
   </figure>
+
+  <figure>
+    <video id="test4" autoplay muted loop playsinline style="width: 100%;">
+      <source src="./assets/5a-faucet/arm.webm" type="video/webm">
+    </video>
+  </figure>
 </div>
 
-          <p style="margin-bottom: 50px;">
+          <p style="margin-bottom: 50px; text-align:justify;"
+             data-en="The 5a-Faucet, with its multiple degrees of freedom and complex movements, presents numerous potential points of failure. To ensure reliability, I conducted extensive durability tests, simulating over 100,000 cycles of the faucet's various movements. As demonstrated in the clips above, I designed automated testing jigs to replicate the motion of the arm, magnet docking ball joint, and multiple hinges integrated into the design. These tests were critical for assessing fatigue, wear, and long-term mechanical performance, ultimately ensuring the product's robustness and durability."
+             data-ja="信頼性確保のため、10万サイクル以上を想定した耐久試験を実施しました。アーム・ボールジョイント・ヒンジの動きを再現する自動テスト治具を設計し、疲労・摩耗・長期的な機械特性を評価することで、製品の堅牢性と耐久性を確保しました。">
             The 5a-Faucet, with its multiple degrees of freedom and complex movements, presents numerous potential points of failure. 
             To ensure reliability, I conducted extensive durability tests, simulating over 100,000 cycles of the faucet’s various movements. 
             As demonstrated in the clips above, I designed automated testing jigs to replicate the motion of the arm, magnet docking ball joint, 
@@ -286,20 +328,20 @@
             ultimately ensuring the product’s robustness and durability.
           </p>
 
-         <p>
+         <p data-en="More details about the product can be found on WHIPSAW's and DG Takano's websites." data-ja="製品の詳細は、WHIPSAWおよびDGタカノのウェブサイトでご確認いただけます。">
             More details about the product can be found on WHIPSAW's and DG Takano's websites.
           </p>
 
           
           <div class="project-gallery">
             
-           <a href="https://meliordesign.com/" target="_blank">
+           <a href="https://meliordesign.com/" target="_blank" rel="noopener noreferrer">
     <figure class="project-gallery-img">
         <img src="./assets/5a-faucet/meliordesign.png" alt="meliordesign" loading="lazy" width="180";">
     </figure>
            </a>
             
-           <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank">
+           <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank" rel="noopener noreferrer">
     <figure class="project-gallery-img">
         <img src="./assets/5a-faucet/whipsaw.png" alt="5a-faucet-test-2" loading="lazy" width="180";">
     </figure>
@@ -319,7 +361,7 @@
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item="" style="padding: 30px;">
- <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank">
+ <a href="https://www.whipsaw.com/latest/a-water-saving-innovation-designed-by-whipsaw-and-dg-takano" target="_blank" rel="noopener noreferrer">
                 <figure class="testimonials-avatar-box">
                   <img src="./assets/5a-faucet/whipsaw.svg" alt="whipsaw" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
                 </figure>
@@ -334,7 +376,7 @@
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item="" style="padding: 30px;">
-<a href="https://meliordesign.com/" target="_blank">
+<a href="https://meliordesign.com/" target="_blank" rel="noopener noreferrer">
                 <figure class="testimonials-avatar-box">
                  <img src="./assets/5a-faucet/meliordesign.png" alt="meliordesign" loading="lazy" style="width: calc(100% / 2);position: relative;transform: translateX(calc(50% - 5px));">
 </a>
@@ -686,7 +728,7 @@
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank">
+  <a href="https://www.linkedin.com/feed/update/urn:li:activity:7153650369120636929/" target="_blank" rel="noopener noreferrer">
 
     <figure class="blog-banner-box">
       <img src="./assets/images/life-logs-1.jpeg" alt="life-logs-1" loading="lazy">
@@ -738,7 +780,7 @@
             </li>
 
             <li class="blog-post-item">
-              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank">
+              <a href="https://www.red-dot.org/project/meliordesign-dishware-67770" target="_blank" rel="noopener noreferrer">
 
                 <figure class="blog-banner-box">
                   <img src="./assets/images/red-dot.jpg" alt="Red Dot Award 2024" loading="lazy">
@@ -911,7 +953,7 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script type="module" src="./assets/js/script.js"></script>
 
   <!--
     - ionicon link
