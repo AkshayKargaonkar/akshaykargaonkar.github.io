@@ -1590,6 +1590,321 @@ article[data-page="life-logs"] .project-item {
 
 
 /*-----------------------------------*\
+  #STRINGS PHYSICS SECTION
+\*-----------------------------------*/
+
+/**
+ * Responsive umbrella + hanging strings.
+ *
+ * MUST stay at the top level of the stylesheet. If this block ends up
+ * nested inside a media query the whole section stops being responsive
+ * outside that query's range.
+ *
+ * DESIGN NOTES
+ * ------------
+ * Earlier versions of this block used two constructs that are fragile:
+ *
+ *   aspect-ratio: 1 / var(--umbrella-ratio);
+ *   height: calc(30px + (var(--umbrella-w) * var(--rim-fraction)) + ...);
+ *
+ * Both are avoided now. Instead:
+ *   - the overlay boxes take their height from the image's own intrinsic
+ *     square ratio, so no aspect-ratio declaration is needed at all
+ *   - the figure's height comes from a plain, non-multiplied calc of
+ *     absolute lengths only
+ *   - --umbrella-w is an absolute length (px), never a percentage, so
+ *     nothing depends on resolving a percentage during arithmetic
+ *
+ * strings.js measures the rendered .strings-overlay-back box at runtime
+ * to find the rim, so the JS follows whatever the CSS produces. The only
+ * value shared between the two files is --rim-fraction.
+ *
+ * Source art is 2048x2048 with the canopy ending at y=706,
+ * so the rim sits at 706 / 2048 = 0.345 of the image height.
+ */
+
+.strings-section {
+  margin: 0 0 50px;
+}
+
+.strings-figure {
+  /* Single source of scale. Absolute length on purpose — see notes above.
+     Overridden per breakpoint at the bottom of this block. */
+  --umbrella-w: 260px;
+
+  /* Where the canopy rim sits down the art. Read by strings.js too. */
+  --rim-fraction: 0.345;
+
+  /* The art has transparent padding above the canopy: content starts at
+     y=397 of 2048 = 0.1938 of the height. The overlay is pulled up by this
+     amount so the *visible* canopy sits directly under the peg bar instead
+     of floating a long way below it. Precomputed per breakpoint as
+     --art-pad so no calc() multiplication is needed. */
+  --art-pad: 50px;
+
+  /* How much of the umbrella width the string curtain spans. */
+  --string-span: 0.92;
+
+  /* Height of the peg bar. */
+  --peg-h: 30px;
+
+  /* Visible canopy height = (rim - topPad) * --umbrella-w, precomputed. */
+  --canopy-h: 39px;
+
+  /* Resting length of the strings. This is a real input, not leftover
+     space: strings.js reads --strings-drop-px and builds the grid to
+     exactly this length. */
+  --strings-drop: 200px;
+  --strings-drop-px: 200;
+
+  /* Extra room below the resting strings so gravity/dragging can stretch
+     them without hitting the clip edge. */
+  --stretch-room: 90px;
+
+  --strings-ink: var(--light-gray);
+  --strings-font: 'Poppins', sans-serif;
+  --strings-weight: 300;
+
+  position: relative;
+  width: 100%;
+  /* Plain addition of absolute lengths only — no multiplication, no
+     percentages. Reserves peg + visible canopy + full string length +
+     stretch headroom, so nothing is ever clipped. */
+  height: calc(
+    var(--peg-h) + var(--canopy-h) + var(--strings-drop) + var(--stretch-room)
+  );
+  background: none;
+  border: none;
+  cursor: grab;
+  touch-action: none;
+  /* Strings are free to hang their full length; the height above already
+     accounts for them, so no clipping is needed. */
+  overflow: visible;
+}
+
+.strings-figure:active { cursor: grabbing; }
+
+/* full-width bar the umbrella hangs from */
+.strings-peg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  height: var(--peg-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 1px solid hsla(0, 0%, 84%, 0.25);
+  border-radius: 8px;
+  background: hsla(0, 0%, 100%, 0.02);
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 0 10px;
+  pointer-events: none;
+}
+
+#strings-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  z-index: 2;
+}
+
+/**
+ * Both overlays share identical geometry so the front and back halves of
+ * the umbrella register exactly. Only z-index differs.
+ *
+ * Height is deliberately left to the image's own intrinsic ratio (the art
+ * is square), so there is no aspect-ratio declaration to go wrong. Setting
+ * only the width means the box height follows automatically and both
+ * overlays always resolve to the same size.
+ */
+.strings-overlay {
+  position: absolute;
+  /* Pull up by --art-pad so the visible canopy — not the art's transparent
+     top edge — sits just under the peg bar. This is what closes the gap. */
+  top: calc(var(--peg-h) - var(--art-pad));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--umbrella-w);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.strings-overlay img {
+  display: block;
+  width: 100%;
+  height: auto;                    /* intrinsic square ratio drives height */
+}
+
+.strings-overlay-back  { z-index: 1; }   /* canopy behind the strings */
+.strings-overlay-front { z-index: 4; }   /* front half over the strings */
+
+/* live physics controls */
+.strings-controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  width: 150px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  box-shadow: var(--shadow-1);
+  padding: 9px 11px;
+  backdrop-filter: blur(10px);
+}
+
+.strings-controls-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--light-gray);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  letter-spacing: 0.5px;
+  margin-bottom: 7px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--jet);
+}
+
+.strings-controls-head ion-icon {
+  color: var(--light-gray-70);
+  font-size: 12px;
+}
+
+.strings-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.strings-ctrl-row:last-child { margin-bottom: 0; }
+
+.strings-ctrl-row label {
+  color: var(--light-gray-70);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-300);
+  width: 58px;
+  flex-shrink: 0;
+}
+
+.strings-ctrl-row input[type="range"] {
+  flex: 1;
+  height: 1px;
+  accent-color: var(--orange-yellow-crayola);
+  background: var(--jet);
+  cursor: pointer;
+}
+
+/**
+ * Breakpoint scaling.
+ *
+ * Derived from the art's measured alpha bounds (2048x2048 source):
+ *   transparent top padding = 397 / 2048 = 0.1938  -> --art-pad
+ *   canopy rim              = 706 / 2048 = 0.3447  -> --rim-fraction
+ *   visible canopy height   = (0.3447 - 0.1938)    = 0.1509 of --umbrella-w
+ *
+ * All three px values are precomputed per breakpoint so the figure height
+ * is a plain sum of absolute lengths. If you change --umbrella-w, recompute:
+ *   --art-pad  = w * 0.1938
+ *   --canopy-h = w * 0.1509
+ * and keep --strings-drop-px numerically equal to --strings-drop.
+ */
+
+/* phones */
+@media (max-width: 579px) {
+  .strings-figure {
+    --umbrella-w: 200px;
+    --art-pad: 39px;               /* 200 * 0.1938 */
+    --canopy-h: 30px;              /* 200 * 0.1509 */
+    --strings-drop: 170px;
+    --strings-drop-px: 170;
+    --stretch-room: 95px;
+    --peg-h: 44px;                 /* label wraps to two lines here */
+  }
+
+  .strings-peg { font-size: var(--fs-8); }
+
+  .strings-controls {
+    width: 118px;
+    padding: 7px 9px;
+  }
+
+  .strings-ctrl-row label { width: 46px; }
+}
+
+/* small tablets and up */
+@media (min-width: 580px) {
+  .strings-figure {
+    --umbrella-w: 300px;
+    --art-pad: 58px;               /* 300 * 0.1938 */
+    --canopy-h: 45px;              /* 300 * 0.1509 */
+    --strings-drop: 230px;
+    --strings-drop-px: 230;
+    --stretch-room: 105px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .strings-figure {
+    --umbrella-w: 420px;
+    --art-pad: 81px;               /* 420 * 0.1938 */
+    --canopy-h: 63px;              /* 420 * 0.1509 */
+    --strings-drop: 300px;
+    --strings-drop-px: 300;
+    --stretch-room: 110px;
+  }
+}
+
+/* wide desktop */
+@media (min-width: 1250px) {
+  .strings-figure {
+    --umbrella-w: 480px;
+    --art-pad: 93px;               /* 480 * 0.1938 */
+    --canopy-h: 72px;              /* 480 * 0.1509 */
+    --strings-drop: 340px;
+    --strings-drop-px: 340;
+    --stretch-room: 120px;
+  }
+}
+
+/* reduced motion: keep the umbrella art, drop the simulation.
+   strings.js bails out early under the same query. */
+@media (prefers-reduced-motion: reduce) {
+  #strings-canvas-wrap { display: none; }
+}
+
+
+/* skill chips shown under design headlines */
+.design-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -8px;
+  margin-bottom: 25px;
+}
+
+.design-skills li {
+  color: var(--white-1);
+  background: var(--onyx);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  padding: 3px 12px;
+  border-radius: 8px;
+  width: max-content;
+}
+
+
+
+/*-----------------------------------*\
   #BLOG
 \*-----------------------------------*/
 
@@ -2558,83 +2873,5 @@ textarea.form-input::-webkit-resizer { display: none; }
         
    transform: translateX(0px);
   }
-
-
-  /* ===== Strings physics section ===== */
-  
-.strings-section {
-  margin: 0px 0px 50px;                        /* room so swung strings don't hit neighbours */
-}
-
-.strings-figure {
-  --strings-ink: var(--light-gray);      /* letter colour = your body text */
-  --strings-font: 'Poppins', sans-serif;
-  --strings-weight: 300;
-
-  position: relative;
-  width: 100%;
-  height: 450px;
-  background: none;
-  border: none;
-  cursor: grab;
-  touch-action: none;
-  overflow: visible;                     /* let strings swing outside */
-}
-.strings-figure:active { cursor: grabbing; }
-
-/* full-width box the strings hang from, text centred */
-.strings-peg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  height: 30px;                          /* MUST match topInset in strings.js */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  border: 1px solid hsla(0, 0%, 84%, 0.25);
-  border-radius: 8px;
-  background: hsla(0, 0%, 100%, 0.02);
-  color: var(--light-gray);
-  font-size: var(--fs-7);
-  font-weight: var(--fw-300);
-  letter-spacing: 0.02em;
-  pointer-events: none;                  /* never blocks dragging */
-}
-
-#strings-canvas-wrap {
-  position: absolute;
-  inset: 0;
-  overflow: visible;
-  z-index: 1;
-  top:10px;
-
-}
-
-
-/* skill chips shown under design headlines */
-.design-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: -8px;
-  margin-bottom: 25px;
-}
-
-.design-skills li {
-  color: var(--white-1);
-  background: var(--onyx);
-  font-size: var(--fs-8);
-  font-weight: var(--fw-300);
-  padding: 3px 12px;
-  border-radius: 8px;
-  width: max-content;
-}
-
-  /**
-	 * RESUME
-	 */
 
 }

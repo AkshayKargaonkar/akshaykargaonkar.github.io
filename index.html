@@ -136,17 +136,17 @@
 
         <ul class="social-list">
           <li class="social-item">
-            <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/akshay-kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/AkshayKargaonkar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/akshay.kargaonkar" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
@@ -470,12 +470,60 @@ When I'm not immersed in engineering challenges, you'll find me exploring new pl
 
         </div>
 
+        <!--
+          Interactive physics demo.
+
+          Source order matters here: back overlay -> canvas -> front overlay.
+          That way the strings render sandwiched between the two halves of
+          the umbrella even before z-index is applied. Both overlays use
+          identical CSS geometry (same width, ratio, top offset, centering)
+          so they register exactly at every screen width, and strings.js
+          measures the back overlay at runtime to find the rim.
+        -->
         <section class="strings-section" aria-label="Interactive physics demo">
-  <figure class="strings-figure">
-    <div class="strings-peg">A little physics — grab a thread and pull</div>
-    <div id="strings-canvas-wrap"></div>
-  </figure>
-</section>
+          <figure class="strings-figure">
+
+            <div class="strings-peg" data-en="A little physics — grab a thread and pull" data-ja="ちょっとした物理 — 糸をつかんで引いてみて">A little physics — grab a thread and pull</div>
+
+            <div class="strings-overlay strings-overlay-back">
+              <img src="./designs/totoro1.PNG" alt="" aria-hidden="true" decoding="async" width="2048" height="2048">
+            </div>
+
+            <div id="strings-canvas-wrap"></div>
+
+            <div class="strings-overlay strings-overlay-front">
+              <img src="./designs/totoro2.PNG" alt="" aria-hidden="true" decoding="async" width="2048" height="2048">
+            </div>
+
+            <div class="strings-controls" id="strings-controls">
+              <div class="strings-controls-head">
+                <span data-en="Motion" data-ja="モーション">Motion</span>
+                <ion-icon name="options-outline"></ion-icon>
+              </div>
+
+              <div class="strings-ctrl-row">
+                <label for="phys-gravity" data-en="Gravity" data-ja="重力">Gravity</label>
+                <input id="phys-gravity" type="range" min="0" max="1" step="0.01" value="0.2" data-phys="gravity">
+              </div>
+
+              <div class="strings-ctrl-row">
+                <label for="phys-damping" data-en="Damping" data-ja="減衰">Damping</label>
+                <input id="phys-damping" type="range" min="0.8" max="1" step="0.001" value="0.99" data-phys="damping">
+              </div>
+
+              <div class="strings-ctrl-row">
+                <label for="phys-radius" data-en="Touch radius" data-ja="タッチ範囲">Touch radius</label>
+                <input id="phys-radius" type="range" min="500" max="10000" step="1" value="4200" data-phys="mouseSize">
+              </div>
+
+              <div class="strings-ctrl-row">
+                <label for="phys-force" data-en="Touch force" data-ja="タッチ強度">Touch force</label>
+                <input id="phys-force" type="range" min="0" max="8" step="0.1" value="2.2" data-phys="mouseStrength">
+              </div>
+            </div>
+
+          </figure>
+        </section>
 
       </article>
 

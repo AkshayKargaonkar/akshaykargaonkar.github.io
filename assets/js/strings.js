@@ -3,12 +3,44 @@
 //  Adapted from Liam Egan's CodePen "Strings" (MIT).
 //  No external imports. Scoped to #strings-canvas-wrap.
 //  Runs only while the About section is on screen.
+//
+//  RESPONSIVE CONTRACT
+//  -------------------
+//  This file contains no hardcoded layout pixel values for the string
+//  origin or width. computeConfig() measures the rendered
+//  .strings-overlay-back element (the back half of the umbrella art) and
+//  derives:
+//      topInset -> the y where the strings hang from (the umbrella rim)
+//      awidth   -> how wide the curtain of strings is
+//      centerX  -> the horizontal centre of the umbrella
+//
+//  All the sizing lives in CSS on .strings-figure:
+//      --umbrella-w      the single source of scale
+//      --umbrella-ratio  the art's height / width
+//      --rim-fraction    how far down the art the rim sits (0-1)
+//
+//  Change the umbrella size in CSS and the strings follow automatically
+//  at every breakpoint. Nothing in this file needs editing to rescale.
+//
+//  --rim-fraction is 0.345 because the source PNGs are 2048x2048 and the
+//  canopy content ends at y=706 (706 / 2048 = 0.345).
 // ============================================================
 (function () {
   'use strict';
 
   const wrap = document.getElementById('strings-canvas-wrap');
   if (!wrap) return;
+
+  // .strings-figure — the positioning context shared by the canvas wrap
+  // and both umbrella overlays. Every measurement is relative to it.
+  const figure = wrap.parentElement;
+  if (!figure) return;
+
+  // Respect the OS "reduce motion" setting — skip the simulation entirely.
+  // The umbrella art still shows, it just doesn't have moving strings.
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
 
   // ---- The text the hanging strings are made of ----------------
   // lowercase, code/skills vibe
@@ -28,6 +60,13 @@
     return t * t * (3 - 2 * t);
   }
   function getPointID(row, col, gridH) { return col * gridH + row; }
+
+  // read a numeric custom property off .strings-figure, with a fallback
+  function cssNumber(name, fallback) {
+    const raw = getComputedStyle(figure).getPropertyValue(name);
+    const n = parseFloat(raw);
+    return Number.isFinite(n) ? n : fallback;
+  }
 
   // ---- tiny 2D vector ------------------------------------------
   class Vec2 {
@@ -96,31 +135,99 @@
   let cfg, lastDelta = 0;
   const mouse = { x: -1e9, y: -1e9, active: false, grabbed: null };
 
+  /**
+   * Measure where the umbrella's bottom rim actually is right now, and how
+   * wide the umbrella actually is, in CSS pixels relative to the top-left
+   * of .strings-figure.
+   *
+   * This is the entire responsive mechanism. CSS decides the umbrella size
+   * via --umbrella-w; this function reads the result back. Because both
+   * overlay images share identical geometry, measuring the back one also
+   * tells us exactly where the front one is, so the strings stay registered
+   * with both halves of the art at any width.
+   */
+  function measureUmbrella(fallbackW) {
+    const fallback = {
+      topInset: 120,
+      awidth: fallbackW * 0.6,
+      centerX: fallbackW / 2
+    };
+
+    const overlay = figure.querySelector('.strings-overlay-back');
+    if (!overlay) return fallback;
+
+    const oRect = overlay.getBoundingClientRect();
+    const fRect = figure.getBoundingClientRect();
+
+    // If the image hasn't laid out yet its box can be zero-sized. Use the
+    // fallback for now; the load handler further down rebuilds once it's real.
+    if (oRect.width < 2 || oRect.height < 2) return fallback;
+
+    // how far down the art box the canopy rim sits (0 = top, 1 = bottom)
+    const rimFraction = cssNumber('--rim-fraction', 0.345);
+
+    // how much of the umbrella width the strings span. Slightly inside the
+    // outer edge so they read as hanging from the canopy, not from thin air.
+    const spanFraction = cssNumber('--string-span', 0.92);
+
+    return {
+      topInset: (oRect.top - fRect.top) + oRect.height * rimFraction,
+      awidth: oRect.width * spanFraction,
+      centerX: (oRect.left - fRect.left) + oRect.width / 2
+    };
+  }
+
   function computeConfig() {
     const rect = wrap.getBoundingClientRect();
     const W = Math.max(200, rect.width);
     const H = Math.max(200, rect.height);
-    const bleed = 140;                 // extra canvas room on every side
-    const topInset = 30;               // = box height; strings hang from box bottom
-    const awidth = W * 0.8;            // strings span 80% of the section width
-    const aheight = H - topInset - 20;
-    const gridW = Math.max(40, Math.min(100, Math.floor(awidth / 1)));
-    const gridH = Math.max(10, Math.min(30, Math.floor(aheight / 5)));
+    const bleed = 100;                 // extra canvas room on every side
+
+    const um = measureUmbrella(W);
+    const topInset = um.topInset;
+    const awidth = um.awidth;
+    const centerX = um.centerX;
+
+    // whatever vertical room is left below the rim, minus a little breathing
+    // space so the longest strings don't run into the section edge
+    // How long the strings are at rest. This is an explicit input read from
+    // CSS (--strings-drop), NOT "whatever space is left over". Deriving it
+    // from the figure height was circular: the figure height came from the
+    // drop, and the drop came from the figure height, so gravity always
+    // stretched the strings past the box and they got clipped.
+    //
+    // The figure reserves --strings-drop plus --stretch-room below the rim,
+    // so the fully extended strings always fit inside it.
+    const restDrop = cssNumber('--strings-drop-px', 0)
+      || Math.max(100, H - topInset - 20);
+    const aheight = restDrop;
+
+    // grid density follows physical size, so a small umbrella on a phone
+    // doesn't carry the same particle count as a wide desktop one
+    const gridW = Math.max(14, Math.min(80, Math.floor(awidth / 7)));
+    const gridH = Math.max(6, Math.min(40, Math.floor(aheight / 3)));
+
     return {
       // logical section size
       sectionW: W, sectionH: H,
       // canvas is larger than the section on all sides
       canvasW: W + bleed * 2,
       canvasH: H + bleed * 2,
-      bleed, topInset,
+      bleed, topInset, centerX,
       awidth, aheight, gridW, gridH,
-      gravity: 0.2, damping: 0.99, iterationsPerFrame: 6,
+      gravity: 0.2, damping: 0.99, iterationsPerFrame: 3,
       compressFactor: 0.02, stretchFactor: 1.1,
       mouseSize: 4200, mouseStrength: 2.2,
       cellWidth: awidth / (gridW - 1),
       cellHeight: aheight / (gridH - 1)
     };
   }
+
+  // Single place that converts grid space -> canvas space. Both the renderer
+  // and the pointer hit-testing use these, so they can never disagree about
+  // where a particle is on screen.
+  function originX() { return cfg.bleed + cfg.centerX - cfg.awidth / 2; }
+  function originY() { return cfg.bleed + cfg.topInset; }
 
   function buildGlyphs(fontSize, dpr) {
     charCanvases = {};
@@ -147,7 +254,8 @@
 
   function build() {
     cfg = computeConfig();
-    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    wrap._stringsCfg = cfg;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     // backing store at device resolution...
     c.width = Math.round(cfg.canvasW * dpr);
     c.height = Math.round(cfg.canvasH * dpr);
@@ -161,7 +269,9 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     cfg.dpr = dpr;
 
-    const fontSize = Math.min(9, Math.max(9, cfg.cellHeight * 0.45));
+    // glyph size follows cell size so the text stays legible but proportionate
+    // when the umbrella shrinks on a phone
+    const fontSize = Math.max(6, Math.min(9, cfg.cellHeight * 0.5));
     buildGlyphs(fontSize, dpr);
 
     particles = [];
@@ -195,13 +305,19 @@
         }
       }
     }
+    const ctrlEl = document.getElementById('strings-controls');
+    if (ctrlEl) {
+      ctrlEl.querySelectorAll('input[data-phys]').forEach((s) => {
+        cfg[s.dataset.phys] = parseFloat(s.value);
+      });
+    }
     built = true;
   }
 
   function drawCode() {
     const dpr = cfg.dpr;
-    const offX = cfg.bleed + (cfg.sectionW - cfg.awidth) / 2;
-    const offY = cfg.bleed + cfg.topInset;
+    const offX = originX();
+    const offY = originY();
     for (const p of particles) {
       if (!p.char || p.char === ' ') continue;
       const img = charCanvases[p.char];
@@ -233,8 +349,8 @@
 
     // mouse forces
     if (mouse.active) {
-      const gx = mouse.x - (cfg.bleed + (cfg.sectionW - cfg.awidth) / 2);
-      const gy = mouse.y - (cfg.bleed + cfg.topInset);
+      const gx = mouse.x - originX();
+      const gy = mouse.y - originY();
       if (mouse.grabbed) {
         mouse.grabbed.pos.reset(gx, gy);
         mouse.grabbed.oldPos.reset(gx, gy);
@@ -267,11 +383,14 @@
   }
   function onDown(e) {
     const { x, y } = toLocal(e);
-    const gx = x - (cfg.bleed + (cfg.sectionW - cfg.awidth) / 2);
-    const gy = y - (cfg.bleed + cfg.topInset);
+    const gx = x - originX();
+    const gy = y - originY();
     mouse.active = true; mouse.x = x; mouse.y = y;
+    // grab radius follows cell size so grabbing feels the same on a phone
+    // as it does on a wide desktop layout
+    const grabR = Math.max(12, Math.min(28, cfg.cellHeight * 2));
     for (const p of particles) {
-      if (Math.hypot(gx - p.pos.x, gy - p.pos.y) < 18) {
+      if (Math.hypot(gx - p.pos.x, gy - p.pos.y) < grabR) {
         mouse.grabbed = p;
         p._wasPinned = p.pinned;
         p.pinned = true;
@@ -332,13 +451,46 @@
     mouse.active = false; mouse.grabbed = null;
   }
 
-  // rebuild on resize (debounced) if currently running
+  // ---- rebuild triggers ----------------------------------------
+  // Three things can change the umbrella's measured box. All of them need
+  // to trigger a rebuild, otherwise the strings detach from the rim.
+
+  // 1) Viewport width changes. Height-only changes are ignored because
+  //    mobile browsers fire resize constantly as the URL bar shows/hides,
+  //    and rebuilding on every one of those is wasteful and visibly janky.
   let resizeT;
+  let lastW = window.innerWidth;
   window.addEventListener('resize', () => {
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
     if (!running) { built = false; return; }
     clearTimeout(resizeT);
-    resizeT = setTimeout(() => { build(); }, 200);
+    resizeT = setTimeout(build, 200);
   });
+
+  // 2) The umbrella image finishing decode. Before it loads its box can
+  //    measure zero, which would put the string origin in the wrong place.
+  const overlayImg = figure.querySelector('.strings-overlay-back img');
+  if (overlayImg && !overlayImg.complete) {
+    overlayImg.addEventListener('load', () => { if (running) build(); }, { once: true });
+  }
+
+  // 3) Any layout change to the figure itself — breakpoint crossovers, the
+  //    sidebar expanding, webfonts landing and shifting things around.
+  if (typeof ResizeObserver !== 'undefined') {
+    let roT, lastFigW = 0, lastFigH = 0;
+    const ro = new ResizeObserver((entries) => {
+      const r = entries[0].contentRect;
+      // ignore sub-pixel jitter, only react to real geometry changes
+      if (Math.abs(r.width - lastFigW) < 2 && Math.abs(r.height - lastFigH) < 2) return;
+      lastFigW = r.width;
+      lastFigH = r.height;
+      if (!running) return;
+      clearTimeout(roT);
+      roT = setTimeout(build, 150);
+    });
+    ro.observe(figure);
+  }
 
   // Run only while the section is visible on screen.
   const io = new IntersectionObserver((entries) => {
@@ -347,4 +499,29 @@
     }
   }, { threshold: 0.15 });
   io.observe(wrap);
+
+
+  // ---- live physics controls -----------------------------------
+  const controls = document.getElementById('strings-controls');
+  if (controls) {
+    controls.querySelectorAll('input[data-phys]').forEach((slider) => {
+      const key = slider.dataset.phys;
+      const out = slider.parentElement.querySelector('.strings-ctrl-val');
+
+      const fmt = (v) => {
+        if (key === 'gravity') return v.toFixed(2);
+        if (key === 'damping') return v.toFixed(3);
+        if (key === 'mouseSize') return Math.round(v).toString();
+        return v.toFixed(1);
+      };
+
+      slider.addEventListener('input', () => {
+        const val = parseFloat(slider.value);
+        if (out) out.textContent = fmt(val);
+        // cfg is rebuilt on resize, so re-read the live one each time
+        const liveCfg = wrap._stringsCfg;
+        if (liveCfg) liveCfg[key] = val;
+      });
+    });
+  }
 })();
