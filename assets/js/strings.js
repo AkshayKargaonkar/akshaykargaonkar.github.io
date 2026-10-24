@@ -52,7 +52,7 @@
     'fusion360  matlab  git  linux  firmware  ' +
     'if(idea){ prototype(); iterate(); ship(); }  ' +
     'while(curious){ learn(); create(); }  ' +
-    'osaka.jp  //always-building  ';
+    'tokyo.jp  //always-building  ';
 
   // ---- helpers (inlined so there's no CodePen dependency) ------
   function smoothstep(edge0, edge1, x) {
